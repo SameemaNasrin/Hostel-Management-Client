@@ -8,8 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
-import { ViewbyhidComponent } from './component/allotment/viewbyhid/viewbyhid.component';
-
+import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 @NgModule({
   declarations: [
     AppComponent,
