@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewallwardensComponent implements OnInit {
 
+  warden:any = undefined;
+  msg:string;
   constructor() { }
 
   ngOnInit() {

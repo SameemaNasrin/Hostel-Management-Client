@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 
+import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { ViewallstudentComponent } from './components/student/viewallstudent/vie
     HostelsComponent,
     HomeComponent,
     ViewallwardensComponent,
-    ViewallstudentComponent
+    ViewallstudentComponent,
+    ViewbyhidComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<div class="col-5 mx-auto p-2 m-2">
+  <input type="number" placeholder="Enter Hostel ID" [(ngModel)]="hid" class="form-control"/>
+  <input type="button" value="Search" (click)="viewallotmentbyhid()" class="btn btn-info"/>
+</div>
+<section>
+  <div *ngIf="msg!=undefined" class="alert alert-danger">{{msg}}</div>
+  <table class="table table-primary table-striped table-hover" *ngIf="employees!=undefined">
+    <tr>
+      <td>Alloment ID</td>
+      <td>{{allotment.allotmentId}}</td>
+    </tr>
+    <tr>
+      <td>Student ID</td>
+      <td>{{allotment.studentId}}</td>
+    </tr>
+    <tr>
+      <td>Room ID</td>
+      <td>{{allotment.roomId}}</td>
+    </tr>
+    <tr>
+      <td>Hostel ID</td>
+      <td>{{allotment.hostelId}}</td>
+    </tr>
+  </table>
+</section>
