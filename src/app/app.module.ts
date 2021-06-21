@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -8,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
+import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
+
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 @NgModule({
   declarations: [
@@ -16,12 +19,14 @@ import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.c
     HostelsComponent,
     HomeComponent,
     ViewallwardensComponent,
-    ViewbyhidComponent
+    ViewallstudentComponent,
+    ViewbyhidComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
