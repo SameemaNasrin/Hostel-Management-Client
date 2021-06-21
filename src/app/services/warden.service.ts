@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { Wardendto } from '../dto/wardendto';
+import { Constants } from '../helpers/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WardenService {
-  viewallwarden():Observable<any>{
-    return this.http.get("http://localhost:8082/warden/get")
+  prefix: string = "warden/";
+  constructor(public http: HttpClient) { }
+
+  getWardens (): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get`);
   }
-  constructor(public http:HttpClient) { }
+
 }
+
