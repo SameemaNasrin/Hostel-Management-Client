@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" style="background-color: #cfe2ff;">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Address</th>
+              <th scope="col">Mobile Number</th>
+              <th scope="col">Guardian Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.id}}</td>
+              <td>{{ student.name }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.gender }}</td>
+              <td>{{ student.dob }}</td>
+              <td>{{ student.address }}</td>
+              <td>{{ student.mobile }}</td>
+              <td>{{ student.guardianName }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
