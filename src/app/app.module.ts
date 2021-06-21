@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { HostelsComponent } from './hostels/hostels.component';
-import { HomeComponent } from './home/home.component';
+import { HostelsComponent } from './components/hostels/hostels.component';
+import { HomeComponent } from './components/home/home.component';
+import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HostelsComponent,
-    HomeComponent
+    HomeComponent,
+    ViewallwardensComponent
   ],
   imports: [
     BrowserModule,
