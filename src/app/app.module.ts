@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
+import { ViewbyhidComponent } from './component/allotment/viewbyhid/viewbyhid.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ViewallwardensComponent } from './components/warden/viewallwardens/view
     LoginComponent,
     HostelsComponent,
     HomeComponent,
-    ViewallwardensComponent
+    ViewallwardensComponent,
+    ViewbyhidComponent
   ],
   imports: [
     BrowserModule,
