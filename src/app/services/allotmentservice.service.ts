@@ -15,7 +15,7 @@ export class AllotmentserviceService {
   }
 
   addallotment(allotment:Allotmentdto):Observable<any>{
-    return this.http.get("http://localhost:8082/allotment/add",Allotmentdto);
+    return this.http.get("http://localhost:8082/allotment/add");
   }
 
   delete(aid:number):Observable<any>{
