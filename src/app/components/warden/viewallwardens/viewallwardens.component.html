@@ -1,3 +1,26 @@
-<p>
-  viewallwardens works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" style="background-color: #cfe2ff;">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let warden of wardens">
+              <td>{{ warden.id}}</td>
+              <td>{{ warden.name }}</td>
+              <td>{{ warden.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
