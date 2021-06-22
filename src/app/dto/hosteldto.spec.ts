@@ -1,7 +1,7 @@
-import { Hostel } from './hosteldto';
+import { Hosteldto } from './hosteldto';
 
 describe('Hostel', () => {
   it('should create an instance', () => {
-    expect(new Hostel()).toBeTruthy();
+    expect(new Hosteldto()).toBeTruthy();
   });
 });

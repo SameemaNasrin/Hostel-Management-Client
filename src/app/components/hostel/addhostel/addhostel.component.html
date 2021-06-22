@@ -1,29 +1,30 @@
-<form class="form" #addHotel = "ngForm">
+<form class="form" #addHostel = "ngForm"  (ngSubmit)="add()">
   <a routerLink='/hostel/view' class="btn btn-outline-success back" type="button">Go Back</a><br>
-
-  
-  <div class="alert bg-success text-white" *ngIf="msg != ''">{{msg}}</div>
-
-  <!--<div class="form-group">
-    <label for="id">ID</label>
-    <input type="number" class="form-control" id="id" placeholder="Enter Id" [(ngModel)]="hostel.id" required>
-  </div>-->
-  <div class="form-group">
-    <label for="name">Hostel Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter Hostel Name" [(ngModel)]="hostel.name" #name="ngModel" required>
-  </div>
-  <div *ngIf = "name.invalid && name.touched" class="alert alert-danger">
-    <div *ngIf = "name.errors.required">Hostel name is required</div>
+  <div class="alert alert-success" *ngIf="msg!=undefined">
+    {{ msg }}
+</div>
+<div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+    <p *ngFor="let e of errorMsgs">
+        {{ e }}
+    </p>
 </div>
 
   <div class="form-group">
+    <label for="name">Hostel Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Enter Hostel Name" [(ngModel)]="hostel.name" #name="ngModel" required>
+  </div>
+  <div *ngIf = "name.invalid && name.touched" class="alert alert-danger">
+    <div *ngIf = "name.errors.required">Hostel name is required</div>
+  </div>
+
+  <div class="form-group">
     <label for="contact">Contact Number</label>
-    <input type="number" class="form-control" id="contact" placeholder="Enter Contact Number" [(ngModel)]="hostel.contact" #contact="ngModel" required pattern="[0,9]{10, 10}">
+    <input type="number" class="form-control" name="contact" placeholder="Enter Contact Number" [(ngModel)]="hostel.contact" #contact="ngModel" required pattern="[1-9]{1}[0-9]{9}">
   </div>
   <div *ngIf = "contact.invalid && contact.touched" class="alert alert-danger">
     <div *ngIf = "contact.errors.required">Contact number is required</div>
     <div *ngIf = "contact.errors.pattern">Contact number must be of 10 digits</div>
-</div>
+  </div>
 
   <div class="form-group">
     <label for="type">Type</label><br>
@@ -34,19 +35,19 @@
   </div>
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" id="address" placeholder="Enter Hostel Address" #address="ngModel" [(ngModel)]="hostel.address" required>
+    <input type="text" class="form-control" name="address" placeholder="Enter Hostel Address" #address="ngModel" [(ngModel)]="hostel.address" required>
   </div>
   <div *ngIf = "address.invalid && address.touched" class="alert alert-danger">
     <div *ngIf = "address.errors.required">Address is required</div>
-</div>
+  </div>
 
   <div class="form-group">
     <label for="fee">Fee</label>
-    <input type="number" class="form-control" id="fee" placeholder="Enter Fee" #fee="ngModel" [(ngModel)]="hostel.fee" required>
+    <input type="number" class="form-control" name="fee" placeholder="Enter Fee" #fee="ngModel" [(ngModel)]="hostel.fee" required>
   </div>
   <div *ngIf = "fee.invalid && fee.touched" class="alert alert-danger">
     <div *ngIf = "fee.errors.required">Fee is required</div>
-</div>
+  </div>
 
-  <input type="submit" value="Add" class="btn btn-outline-success addhostel" (click)="add()" >
+  <input type="submit" value="Add" class="btn btn-outline-success addhostel" [disabled]="!addHostel.valid">
 </form>
