@@ -9,3 +9,9 @@
 footer p{
   color: rgb(192, 192, 192);
 }
+
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
