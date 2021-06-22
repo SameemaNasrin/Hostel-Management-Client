@@ -13,11 +13,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hostels', component: HostelsComponent },
-  { path: 'hostel',
-      children:[
-        {path:"add", component:AddhostelComponent},
-        {path:"view", component:ViewallhostelsComponent}
-      ] },
+  {
+    path: 'hostel', children: [
+      { path: "add", component: AddhostelComponent },
+      { path: "view", component: ViewallhostelsComponent }
+    ]
+  },
   {
     path: 'student', children: [
       { path: 'view', component: ViewallstudentComponent },

@@ -9,44 +9,46 @@ import { HostelService } from 'src/app/services/hostel.service';
 })
 export class ViewallhostelsComponent implements OnInit {
 
-  hostel:Hostel;
-  msg:string;
-  hid:number;
-  constructor(public hostelService:HostelService) { }
+  hostels: Hostel[];
+  errorMsgs = []
+  hid: number;
+  constructor(public hostelService: HostelService) { }
 
-  ngOnInit() {
+  ngOnInit () {
     this.hostelService.viewAll().subscribe(
       data => {
-        console.log(data);
-        this.hostel = data;
-        this.msg = undefined;
+        this.errorMsgs = undefined;
+        this.hostels = data
+
       },
 
-      error =>{
+      error => {
         console.log(error);
-        this.msg = error.error.messages();
-        this.hostel = undefined;
+        this.errorMsgs = error.error.messages;
+        this.hostels = undefined;
 
       }
     )
   }
 
-  viewById(){
+  viewById () {
     console.log(this.hid);
-    if(this.hid == undefined || this.hid == null || this.hid <= 0){
-      this.msg = "Enter the Employee ID greater than 0"
+    if (this.hid == undefined || this.hid == null || this.hid <= 0) {
+      this.errorMsgs[0] = "Enter the Employee ID greater than 0"
       return;
     }
     this.hostelService.viewById(this.hid).subscribe(
-      data =>{
+      data => {
         console.log(data);
-        this.hostel = data;
-        this.msg = undefined;
+        this.hostels = [];
+        this.hostels.push(data);
+        this.errorMsgs = undefined;
       },
-      error =>{
+      error => {
         console.log(error);
-        this.msg = error.error.msg;
-        this.hostel = undefined;
+        this.errorMsgs = error.error.messages;
+        console.log(this.errorMsgs);
+
       }
     )
   }
