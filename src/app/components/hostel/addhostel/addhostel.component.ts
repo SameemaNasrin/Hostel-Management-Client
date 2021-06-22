@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Hosteldto } from 'src/app/dto/hosteldto';
 import { Hostel } from 'src/app/entities/hostel';
 import { HostelService } from 'src/app/services/hostel.service';
 

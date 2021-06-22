@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hosteldto } from 'src/app/dto/hosteldto';
+import { HostelDto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { HostelService } from 'src/app/services/hostel.service';
 })
 export class ViewallhostelsComponent implements OnInit {
 
-  hostels: Hosteldto[];
+  hostels: HostelDto[];
   errorMsgs = []
   hid: number;
   constructor(public hostelService: HostelService) { }
