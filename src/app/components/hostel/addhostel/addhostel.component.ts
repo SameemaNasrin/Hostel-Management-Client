@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Hosteldto } from 'src/app/dto/hosteldto';
+import { HostelDto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { HostelService } from 'src/app/services/hostel.service';
 })
 export class AddhostelComponent implements OnInit {
 
-  hostel:Hosteldto = new Hosteldto();
+  hostel:HostelDto = new HostelDto();
   msg:string = "";
   @ViewChild("addHostel")
   private addHostel: NgForm;
