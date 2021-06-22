@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
+import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
+import { AddhostelComponent } from './components/hostel/addhostel/addhostel.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
@@ -21,6 +23,8 @@ import { AddstudentComponent } from './components/student/addstudent/addstudent.
     HostelsComponent,
     HomeComponent,
     ViewallwardensComponent,
+    ViewallhostelsComponent,
+    AddhostelComponent,
     ViewallstudentComponent,
     ViewbyhidComponent,
     AddstudentComponent,
