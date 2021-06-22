@@ -12,11 +12,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hostels', component: HostelsComponent },
-  { path: 'hostel',
-      children:[
-        {path:"add", component:AddhostelComponent},
-        {path:"view", component:ViewallhostelsComponent}
-      ] },
+  { path: 'hostel/view', component:ViewallhostelsComponent },
+  { path: 'hostel/add', component:AddhostelComponent},
   {
     path: 'student', children: [
       { path: 'view', component: ViewallstudentComponent }

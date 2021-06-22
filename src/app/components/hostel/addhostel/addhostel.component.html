@@ -1,36 +1,32 @@
+<div class="form">
+  <a routerLink='/hostel/view' class="btn btn-outline-success back" type="button">Go Back</a><br>
 
-
-<form>
-
-    <a routerLink='/hostel/view' class="btn btn-outline-success m-2 addhostel" type="button">Go Back</a>
-  
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="number" class="form-control" id="id" placeholder="Enter Id">
+    <input type="number" class="form-control" id="id" placeholder="Enter Id" [(ngModel)]="hostel.id">
   </div>
   <div class="form-group">
     <label for="name">Hostel Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter Hostel Name">
+    <input type="text" class="form-control" id="name" placeholder="Enter Hostel Name" [(ngModel)]="hostel.name">
   </div>
   <div class="form-group">
     <label for="contact">Contact Number</label>
-    <input type="number" class="form-control" id="contact" placeholder="Enter Contact Number">
+    <input type="number" class="form-control" id="contact" placeholder="Enter Contact Number" [(ngModel)]="hostel.contact">
   </div>
   <div class="form-group">
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
-      <option value="1">Girls</option>
-      <option value="2">Boys</option>
-      <option value="3">xyz</option>
-    </select>    
+    <label for="type">Type</label><br>
+    <div id="type">
+      <input type="radio" name="type" value="boys" [(ngModel)]="hostel.type"> Boys
+      <input type="radio" name="type" value="girls" id="female" [(ngModel)]="hostel.type"> Girls<br>  
+    </div>
   </div>
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" id="address" placeholder="Enter Hostel Address">
+    <input type="text" class="form-control" id="address" placeholder="Enter Hostel Address" [(ngModel)]="hostel.address">
   </div>
   <div class="form-group">
     <label for="fee">Fee</label>
-    <input type="number" class="form-control" id="fee" placeholder="Enter Fee">
+    <input type="number" class="form-control" id="fee" placeholder="Enter Fee" [(ngModel)]="hostel.fee">
   </div>
-  <button type="button" class="btn btn-primary" onclick="">Add</button>
-</form>
+  <input type="submit" value="Add" class="btn btn-outline-success addhostel" (click)="add()">
+</div>

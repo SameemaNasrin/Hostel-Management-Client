@@ -1,8 +1,23 @@
-form{
-    width: 60vh;
-    margin: auto;
-}
-
 .form-group{
     margin-bottom: 1.5vh;
+    width: 60vh;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+#type{
+    width: 20rem;
+}
+
+#female{
+    margin-left: 5rem;
+}
+
+.back, .addhostel{
+    margin: 1rem 0;
+}
+
+.form{
+    width: 60vh;
+    margin: auto;
 }
