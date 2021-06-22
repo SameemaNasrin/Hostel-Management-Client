@@ -14,6 +14,8 @@ import { AddhostelComponent } from './components/hostel/addhostel/addhostel.comp
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
+import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.c
     AddhostelComponent,
     ViewallstudentComponent,
     ViewbyhidComponent,
+    AddstudentComponent,
   ],
   imports: [
     BrowserModule,

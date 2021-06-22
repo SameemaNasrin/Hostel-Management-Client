@@ -7,22 +7,28 @@ import { HostelsComponent } from './components/hostels/hostels.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
+import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hostels', component: HostelsComponent },
-  { path: 'hostel/view', component:ViewallhostelsComponent },
-  { path: 'hostel/add', component:AddhostelComponent},
+  {
+    path: 'hostel', children: [
+      { path: "add", component: AddhostelComponent },
+      { path: "view", component: ViewallhostelsComponent }
+    ]
+  },
   {
     path: 'student', children: [
-      { path: 'view', component: ViewallstudentComponent }
+      { path: 'view', component: ViewallstudentComponent },
+      { path: 'add', component: AddstudentComponent },
     ]
   },
 
   {
     path: 'warden', children: [
-      { path: 'view', component:ViewallwardensComponent }
+      { path: 'view', component: ViewallwardensComponent }
     ]
   }
 
