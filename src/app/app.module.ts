@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
@@ -21,7 +20,6 @@ import { AddwardenComponent } from './components/warden/addwarden/addwarden.comp
   declarations: [
     AppComponent,
     LoginComponent,
-    HostelsComponent,
     HomeComponent,
     ViewallwardensComponent,
     ViewallhostelsComponent,
