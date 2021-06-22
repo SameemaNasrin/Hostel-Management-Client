@@ -9,6 +9,8 @@ import { ViewallstudentComponent } from './components/student/viewallstudent/vie
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
+import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
+import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +20,12 @@ const routes: Routes = [
     path: 'hostel', children: [
       { path: "add", component: AddhostelComponent },
       { path: "view", component: ViewallhostelsComponent }
+    ]
+  },
+  {
+    path: 'visitor', children: [
+      { path: "add", component: AddvisitorComponent },
+      { path: "view", component: ViewallvisitorComponent }
     ]
   },
   {
