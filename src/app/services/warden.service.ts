@@ -15,5 +15,9 @@ export class WardenService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get`);
   }
 
+  addWarden (wardendto:Wardendto): Observable<any> {
+    return this.http.post(Constants.baseUrl + `${this.prefix}add`, wardendto);
+  }
+
 }
 

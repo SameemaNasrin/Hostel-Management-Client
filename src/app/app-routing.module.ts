@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
+import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
 
   {
     path: 'warden', children: [
-      { path: 'view', component: ViewallwardensComponent }
+      { path: 'view', component: ViewallwardensComponent },
+      { path: 'add' , component: AddwardenComponent},
     ]
   }
 
