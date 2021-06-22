@@ -23,8 +23,8 @@
 }
 
 .card-img-top{
-    width: 20rem;
-    height: 10rem;
+    max-width: 20rem;
+    max-height: 10rem;
     background-color: aquamarine;
     
 }
@@ -35,13 +35,14 @@
     background-color: aquamarine;
     position: relative;
     right: 0.8rem;
+    border-radius: 1rem;
 }
 
 .card{
-    margin-left: 6rem;
+    margin-left: 2rem;
     margin-top: 5rem;
     width: 20rem;
-    
+    border-radius: 1rem;   
 }
 
 .overlay {
@@ -57,10 +58,17 @@
     font-size: 20px;
     padding: 20px;
     text-align: center;
-  }
+}
   
-  .con:hover .overlay {
+.con:hover .overlay {
     opacity: 1;
-  }
+}
+
+#viewBody{
+    width: 100%;
+}
+
+
+
 
   

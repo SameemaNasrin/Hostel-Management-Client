@@ -9,14 +9,14 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 
-    <a  routerLink='/hostel/addhostel' class="btn btn-outline-success" type="button">Add New Hostel</a>
+    <a  routerLink='/hostel/addhostel' class="btn btn-outline-success addhostel" type="button">Add New Hostel</a>
   </nav>
 
   <router-outlet></router-outlet>
-  <input type="button" value="Try" (click) = "viewAll()">
-  <div class="card" *ngFor = "let h of hostel" (load) = "viewAll()">
+<div id="viewBody" class="row">
+  <div class="card" *ngFor = "let h of hostel">
     <div class="con">
-      <img class="card-img-top" src="#" alt="Hostel img">
+      <img class="card-img-top" src="../assets/hostelImg.jpg" alt="Hostel img">
       <div class="overlay">{{h.name | titlecase}}</div>
     </div>
 

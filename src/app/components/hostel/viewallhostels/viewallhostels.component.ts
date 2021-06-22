@@ -14,11 +14,6 @@ export class ViewallhostelsComponent implements OnInit {
   constructor(public hostelService:HostelService) { }
 
   ngOnInit() {
-  }
-
-  viewAll(){
-    console.log("inside view all");
-    console.log(this.hostelService);
     this.hostelService.viewAll().subscribe(
       data => {
         console.log(data);
@@ -34,4 +29,5 @@ export class ViewallhostelsComponent implements OnInit {
       }
     )
   }
+
 }

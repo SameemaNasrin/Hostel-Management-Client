@@ -12,12 +12,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hostels', component: HostelsComponent },
-<<<<<<< HEAD
-  { path: 'hostel', component: ViewallhostelsComponent,
+  { path: 'hostel',
       children:[
-        {path:"addhostel", component:AddhostelComponent}
-      ] }
-=======
+        {path:"add", component:AddhostelComponent},
+        {path:"view", component:ViewallhostelsComponent}
+      ] },
   {
     path: 'student', children: [
       { path: 'view', component: ViewallstudentComponent }
@@ -30,7 +29,6 @@ const routes: Routes = [
     ]
   }
 
->>>>>>> 83af717f20421e49318d3e847807944464a78449
 ];
 
 @NgModule({
