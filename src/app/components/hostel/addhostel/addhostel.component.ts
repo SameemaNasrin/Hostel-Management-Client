@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Hostel } from 'src/app/dto/hostel';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Hosteldto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
 
 @Component({
@@ -9,8 +10,11 @@ import { HostelService } from 'src/app/services/hostel.service';
 })
 export class AddhostelComponent implements OnInit {
 
-  hostel:Hostel = new Hostel();
+  hostel:Hosteldto = new Hosteldto();
   msg:string = "";
+  @ViewChild("addHostel")
+  private addHostel: NgForm;
+
   constructor(public hostelService:HostelService) { }
 
   ngOnInit() {
@@ -24,6 +28,7 @@ export class AddhostelComponent implements OnInit {
       data =>{
         console.log(data);
         this.msg = data.message;
+        this.addHostel.reset();
           return;
         },
         error =>{

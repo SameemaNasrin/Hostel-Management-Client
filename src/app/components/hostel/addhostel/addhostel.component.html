@@ -1,4 +1,4 @@
-<div class="form">
+<form class="form" #addHotel = "ngForm">
   <a routerLink='/hostel/view' class="btn btn-outline-success back" type="button">Go Back</a><br>
 
   
@@ -48,5 +48,5 @@
     <div *ngIf = "fee.errors.required">Fee is required</div>
 </div>
 
-  <input type="submit" value="Add" class="btn btn-outline-success addhostel" (click)="add()">
-</div>
+  <input type="submit" value="Add" class="btn btn-outline-success addhostel" (click)="add()" >
+</form>
