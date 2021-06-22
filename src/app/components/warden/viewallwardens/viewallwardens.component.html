@@ -6,6 +6,12 @@
 <a  routerLink='/warden/add' class="btn btn-outline-success m-2 addwarden" type="button">Add New Warden</a>
 </nav>
 
+<div class="row">
+  <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+    <p class="text-center">{{ e }}</p>
+  </div>
+</div>
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-12">

@@ -23,5 +23,9 @@ export class WardenService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/${wid}`);
   }
 
+  viewByHId (hid: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${hid}`);
+  }
+
 }
 
