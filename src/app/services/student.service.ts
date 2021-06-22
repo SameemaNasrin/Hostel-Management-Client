@@ -1,19 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
-import { Wardendto } from '../dto/wardendto';
+import { Observable } from 'rxjs';
 import { Constants } from '../helpers/constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WardenService {
-  prefix: string = "warden/";
+export class StudentService {
+  prefix: string = "student/";
   constructor(public http: HttpClient) { }
 
-  getWardens (): Observable<any> {
+  getStudents (): Observable<any> {
     return this.http.get(Constants.baseUrl + `${this.prefix}get`);
   }
 
 }
-
