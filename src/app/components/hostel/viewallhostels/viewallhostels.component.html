@@ -1,15 +1,10 @@
 <div class="row page">
     <nav class="navbar navbar-light bg-light">
-    <form class="form">
-      <select id="view" class="btn btn-outline-success m-2">
-        <option value="byid" selected>By Id</option>
-        <option value="byname">By Name</option>
-      </select>
-      <input class="search form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-
-    <a  routerLink='/hostel/addhostel' class="btn btn-outline-success addhostel" type="button">Add New Hostel</a>
+      <div>
+        <input class="search form-control m-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)] = "hid">
+        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewById()">Search</button>
+      </div>
+    <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
   </nav>
 
   <router-outlet></router-outlet>

@@ -12,4 +12,8 @@ export class HostelService {
   viewAll():Observable<any>{
     return this.http.get("http://localhost:8082/hostel/get");
   }
+
+  viewById(hid:number):Observable<any>{
+    return this.http.get("http://localhost:8082/hostel/get/" + hid);
+  }
 }
