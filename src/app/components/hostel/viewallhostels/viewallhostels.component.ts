@@ -34,7 +34,7 @@ export class ViewallhostelsComponent implements OnInit {
   viewById () {
     console.log(this.hid);
     if (this.hid == undefined || this.hid == null || this.hid <= 0) {
-      this.errorMsgs[0] = "Enter the Employee ID greater than 0"
+      this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
     this.hostelService.viewById(this.hid).subscribe(

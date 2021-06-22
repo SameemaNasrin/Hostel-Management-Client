@@ -10,6 +10,7 @@ import { HostelService } from 'src/app/services/hostel.service';
 export class AddhostelComponent implements OnInit {
 
   hostel:Hostel = new Hostel();
+  msg:string = "";
   constructor(public hostelService:HostelService) { }
 
   ngOnInit() {
@@ -22,10 +23,12 @@ export class AddhostelComponent implements OnInit {
     this.hostelService.addHostel(this.hostel).subscribe(
       data =>{
         console.log(data);
-        return;
-      },
-      error =>{
-        console.log(error);
+        this.msg = data.message;
+          return;
+        },
+        error =>{
+          console.log(error);
+          this.msg = error.error.messages[0];
         return;
       }
     );
