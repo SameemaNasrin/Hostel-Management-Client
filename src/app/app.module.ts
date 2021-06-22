@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
+import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddhostelComponent } from './components/hostel/addhostel/addhostel.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { ViewallwardensComponent } from './components/warden/viewallwardens/view
     LoginComponent,
     HostelsComponent,
     HomeComponent,
-    ViewallwardensComponent
+    ViewallwardensComponent,
+    ViewallhostelsComponent,
+    AddhostelComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
