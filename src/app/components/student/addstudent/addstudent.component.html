@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row d-flex justify-content-center" *ngIf="responseMsg!=undefined">
+    <div class="alert alert-success col-md-4 mt-2 mb-0">
+        <p class="text-center">{{ responseMsg }}</p>
+      </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 login-form-card">
+      <h3 class="text-center">Add New Student</h3>
+      
+      <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+        <p *ngFor="let e of errorMsgs">{{ e }}</p>
+      </div>
+      <form #addStudentForm="ngForm" (ngSubmit)="addStudent()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Name</label>
+          <input type="text" class="form-control" name="txtname" [(ngModel)]='studentDto.name' #studName="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="studName.invalid && studName.touched" class="alert alert-danger">
+            <div *ngIf="studName.errors.required">Name is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="txtemail" [(ngModel)]="studentDto.email" #studEmail="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]+$">
+        </div>
+        <div *ngIf="studEmail.invalid && studEmail.touched" class="alert alert-danger">
+            <div *ngIf="studEmail.errors.required">Email is required</div>
+            <div *ngIf="studEmail.errors.pattern">Email is not valid</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Choose Gender</label>
+          <select class="form-select" name="txtgen" [(ngModel)]="studentDto.gender" #studGen="ngModel" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div *ngIf="studGen.invalid && studGen.touched" class="alert alert-danger">
+            <div *ngIf="studGen.errors.required">Gender is required</div>
+            <div *ngIf="studGen.errors.pattern">Gender should be Male/Female/Others</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" name="txtdob" [(ngModel)]="studentDto.dob" #studdob="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="studdob.invalid && studdob.touched" class="alert alert-danger">
+            <div *ngIf="studdob.errors.required">Date of Birth is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" name="txtmob" [(ngModel)]='studentDto.mobile' #studMob="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="[1-9]{1}[0-9]{9}">
+        </div>
+        <div *ngIf="studMob.invalid && studMob.touched" class="alert alert-danger">
+            <div *ngIf="studMob.errors.required">Mobile Number is required</div>
+            <div *ngIf="studMob.errors.pattern">Mobile Number must be 10 digits only</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Address</label>
+          <input type="text" class="form-control" name="txtadd" [(ngModel)]='studentDto.address' #studAdd="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="studAdd.invalid && studAdd.touched" class="alert alert-danger">
+            <div *ngIf="studAdd.errors.required">Address is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Guardian Name</label>
+          <input type="text" class="form-control" name="txtguar" [(ngModel)]='studentDto.guardianName' #studGuar="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="studGuar.invalid && studGuar.touched" class="alert alert-danger">
+            <div *ngIf="studGuar.errors.required">Guardian Name is required</div>
+        </div>
+        
+        <div class="row">
+          <input type="submit" value="Add Student" class="btn btn-success btn-block mt-2" [disabled]="!addStudentForm.valid" />
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
