@@ -22,4 +22,8 @@ export class VisitorService {
   viewByDate (date: string): Observable<any> {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/${date}`);
   }
+
+  viewByDateHostelId (date: string, id: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/date/${date}/${id}`);
+  }
 }
