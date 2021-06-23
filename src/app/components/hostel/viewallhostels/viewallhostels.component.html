@@ -1,15 +1,19 @@
 <div class="row page">
     <nav class="navbar navbar-light bg-light">
       <div>
-        <input class="search form-control m-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)] = "hid">
+        <input class="search form-control m-2" type="search" placeholder="Search By Hostel ID" aria-label="Search"  [(ngModel)] = "hid">
         <button class="btn btn-outline-success m-2" type="submit" (click) = "viewById()">Search</button>
       </div>
-    <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
-  </nav>
+      <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
+    </nav>
 
-  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+      <p class="text-center">{{ e }}</p>
+    </div>
+  </div>
 <div id="viewBody" class="row">
-  <div class="card" *ngFor = "let h of hostel">
+  <div class="card" style="background-color: #cfe2ff;" *ngFor = "let h of hostels">
     <div class="con">
       <img class="card-img-top" src="../assets/hostelImg.jpg" alt="Hostel img">
       <div class="overlay">{{h.name | titlecase}}</div>

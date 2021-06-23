@@ -1,10 +1,10 @@
-import { Hostel } from "./hostel";
+
 
 export class Roomdto {
-    roomId: number;
+    
     roomNo: string;
-    hostel: Hostel;
+    hostelId: number;
     roomDesc: string;
     floor: number;
-    maxSize: number=4;
+    maximumSize: number=4;
 }

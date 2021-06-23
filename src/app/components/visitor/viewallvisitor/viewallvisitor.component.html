@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-light">
+  <div>
+    <input class="search form-control m-2" type="search" placeholder="Search By Hostel ID" aria-label="Search"  [(ngModel)] = "vid">
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewById()">Search</button>
+  </div>
+<a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
+</nav>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" style="background-color: #cfe2ff;">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Contact Number</th>
+              <th scope="col">Student Id</th>
+              <th scope="col">Student Relation</th>
+              <th scope="col">Reason</th>
+              <th scope="col">Date of Visiting</th>
+              <th scope="col">Hostel Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let v of visitor">
+              <td>{{ v.id}}</td>
+              <td>{{ v.name }}</td>
+              <td>{{ v.number }}</td>
+              <td>{{ v.studentId }}</td>
+              <td>{{ v.studentRelation }}</td>
+              <td>{{ v.visitorAddress }}</td>
+              <td>{{ v.reason }}</td>
+              <td>{{ v.dateOfVisiting }}</td>
+              <td>{{ v.hostelId}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>

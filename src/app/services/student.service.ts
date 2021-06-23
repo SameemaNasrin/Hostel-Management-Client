@@ -19,4 +19,16 @@ export class StudentService {
     return this.http.post(Constants.baseUrl + `${this.prefix}add`, studentDto);
   }
 
+  getStudentById (id: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${id}`);
+  }
+
+  getStudentByName (name: string): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/name/${name}`);
+  }
+
+  getStudentByMobile (mobile: string): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/mobile/${mobile}`);
+  }
+
 }

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { HostelsComponent } from './components/hostels/hostels.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
@@ -17,12 +16,14 @@ import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.c
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
 import { ViewallroomsComponent } from './components/room/viewallrooms/viewallrooms.component';
 import { AddroomComponent } from './components/room/addroom/addroom.component';
+import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
+import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
+import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HostelsComponent,
     HomeComponent,
     ViewallwardensComponent,
     ViewallhostelsComponent,
@@ -32,6 +33,9 @@ import { AddroomComponent } from './components/room/addroom/addroom.component';
     AddstudentComponent,
     ViewallroomsComponent,
     AddroomComponent,
+    AddwardenComponent,
+    AddvisitorComponent,
+    ViewallvisitorComponent,
   ],
   imports: [
     BrowserModule,

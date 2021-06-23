@@ -1,3 +1,49 @@
-<p>
-  addroom works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center" *ngIf="responseMsg!=undefined">
+    <div class="alert alert-success col-md-4 mt-2 mb-0">
+      <p class="text-center">{{ responseMsg }}</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 login-form-card">
+      <h3 class="text-center">Add New Room</h3>
+      
+      <!-- <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+        <p *ngFor="let e of errorMsgs">{{ e }}</p>
+      </div> -->
+      <form #addRoomForm="ngForm" (ngSubmit)="addRoom()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Room No</label>
+          <input type="text" class="form-control" name="txtname" [(ngModel)]='roomDto.roomNo' #rno="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="rno.invalid && rno.touched" class="alert alert-danger">
+            <div *ngIf="rno.errors.required">Room No is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Room Desc</label>
+          <input type="text" class="form-control" name="txtdesc" [(ngModel)]="roomDto.roomDesc" #rdesc="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required >
+        </div>
+        <div *ngIf="rdesc.invalid && rdesc.touched" class="alert alert-danger">
+            <div *ngIf="rdesc.errors.required">Room Description is required</div>
+            
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Choose Hostel to Allocate Room</label>
+          <select class="form-select" name="txthost" [(ngModel)]="roomDto.hostelId" #wardHostel="ngModel" required>
+            <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
+            
+          </select>
+        </div>
+        <div *ngIf="wardHostel.invalid && wardHostel.touched" class="alert alert-danger">
+            <div *ngIf="wardHostel.errors.required">Hostel is required</div>
+        </div>
+
+        
+        <div class="row">
+          <input type="submit" value="Add Warden" class="btn btn-success btn-block mt-2" [disabled]="!addRoomForm.valid" />
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

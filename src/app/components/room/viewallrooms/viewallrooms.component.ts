@@ -17,6 +17,7 @@ export class ViewallroomsComponent implements OnInit {
       data => {
         this.rooms = data;
         console.log(this.rooms);
+        
       },
       error => {
         console.log(error);

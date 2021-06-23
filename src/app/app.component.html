@@ -17,7 +17,7 @@
             <a class="nav-link active" aria-current="page" routerLink="/" style="color: #fff;">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/hostels" style="color: #fff;">Hostels</a>
+            <a class="nav-link" routerLink="/hostel/view" style="color: #fff;">Hostel</a>
           </li>
           <!-- start copy -->
           <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
               Manage Rooms
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/room/view">View all Rooms available</a></li>
+              <li><a class="dropdown-item" routerLink="/room/view">View all Rooms</a></li>
               <li><a class="dropdown-item" routerLink="/room/add">Add New Room</a></li>
               <li><a class="dropdown-item" routerLink="/">View Rooms by Hostel ID</a></li>
               <li><a class="dropdown-item" routerLink="/">View Rooms by Floor and Hostel ID</a></li>
@@ -57,16 +57,12 @@
               <li><a class="dropdown-item" routerLink="/">View Warden by wardenId</a></li>
               <li><a class="dropdown-item" routerLink="/">View Warden by hostelId</a></li>
             </ul>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/warden/view" style="color: #fff;">Warden</a>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
-              Hostel
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/hostel/view">View</a></li>
-              <li><a class="dropdown-item" routerLink="/hostel/add">Add</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/visitor/view" style="color: #fff;">Visitor</a>
           </li>
 
           <li class="nav-item">
@@ -78,18 +74,7 @@
   </nav>
   <router-outlet></router-outlet>
 </article>
+
 <footer class="footer-section">
-  <div class="copyright-area">
-      <div class="container">
-          <div class="row">
-            <div class="col-xl-4 col-lg-4 text-center text-lg-left"></div>
-            <div class="col-xl-4 col-lg-4 text-center text-lg-left">
-                <div class="copyright-text">
-                    <p class="text-center">Copyright &copy; 2021, Team 7 - JEE-FS-22Mar</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 text-center text-lg-left"></div>
-          </div>
-      </div>
-  </div>
+  <p class="text-center">Copyright &copy; 2021, Team 7 - JEE-FS-22Mar</p>
 </footer>

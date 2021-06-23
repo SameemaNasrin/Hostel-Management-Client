@@ -3,23 +3,33 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AddhostelComponent } from './components/hostel/addhostel/addhostel.component';
 import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
-import { HostelsComponent } from './components/hostels/hostels.component';
+// import { HostelsComponent } from './components/hostels/hostels.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
 import { ViewallroomsComponent } from './components/room/viewallrooms/viewallrooms.component';
 import { AddroomComponent } from './components/room/addroom/addroom.component';
+import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
+import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
+import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'hostels', component: HostelsComponent },
-  { path: 'hostel',
-      children:[
-        {path:"add", component:AddhostelComponent},
-        {path:"view", component:ViewallhostelsComponent}
-      ] },
+  // { path: 'hostels', component: HostelsComponent },
+  {
+    path: 'hostel', children: [
+      { path: "add", component: AddhostelComponent },
+      { path: "view", component: ViewallhostelsComponent }
+    ]
+  },
+  {
+    path: 'visitor', children: [
+      { path: "add", component: AddvisitorComponent },
+      { path: "view", component: ViewallvisitorComponent }
+    ]
+  },
   {
     path: 'student', children: [
       { path: 'view', component: ViewallstudentComponent },
@@ -36,7 +46,8 @@ const routes: Routes = [
 
   {
     path: 'warden', children: [
-      { path: 'view', component: ViewallwardensComponent }
+      { path: 'view', component: ViewallwardensComponent },
+      { path: 'add' , component: AddwardenComponent},
     ]
   }
 

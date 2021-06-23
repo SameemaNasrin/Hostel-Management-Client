@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HostelDto } from 'src/app/dto/hosteldto';
 import { Roomdto } from 'src/app/dto/roomdto';
+import { HostelService } from 'src/app/services/hostel.service';
 import { RoomService } from 'src/app/services/room.service';
 
 @Component({
@@ -13,26 +15,34 @@ export class AddroomComponent implements OnInit {
   roomDto: Roomdto = new Roomdto();
   responseMsg: string;
   errorMsgs = []
+  hostels=[]
   @ViewChild("addRoomForm")
   private form: NgForm
-  constructor(private roomService: RoomService) {
-    this.roomDto.floor=2;
-    this.roomDto.roomDesc='xyz';
-    this.roomDto.roomNo='302';
+  constructor(private roomService: RoomService,private hostelService:HostelService) {
     
     
   }
 
   ngOnInit () {
+    this.hostelService.viewAll().subscribe(
+      data =>{
+        this.hostels=data;
+
+      },
+      error =>{
+
+      }
+    )
+    
   }
 
-  addStudent (): void {
+  addRoom(): void {
     this.errorMsgs = []
     this.responseMsg = undefined
     this.roomService.addRoom(this.roomDto).subscribe(
       data => {
         this.form.reset()
-        this.responseMsg = "Generated Student Id is: " + data.id;
+        this.responseMsg = "Generated Room Id is: " + data.roomId;
       },
       error => {
         error.error.messages.forEach(e => {

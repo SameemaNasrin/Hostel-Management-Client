@@ -1,4 +1,4 @@
-import { Hostel } from "../dto/hostel";
+import { Hostel } from "../entities/hostel";
 
 export class Room {
     

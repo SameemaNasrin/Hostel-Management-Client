@@ -15,5 +15,17 @@ export class WardenService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get`);
   }
 
+  addWarden (wardendto:Wardendto): Observable<any> {
+    return this.http.post(Constants.baseUrl + `${this.prefix}add`, wardendto);
+  }
+
+  viewByWId (wid: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${wid}`);
+  }
+
+  viewByHId (hid: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${hid}`);
+  }
+
 }
 
