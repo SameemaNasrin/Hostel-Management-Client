@@ -18,6 +18,16 @@
 }
 
 .form{
-    width: 60vh;
+    width: 65vh;
     margin: auto;
+    
+    padding: 20px;
+    background-color: #cfe2ff;
+    margin-top: 20px;
+    margin-bottom: 12%;
+  }
+
+.addhostel{
+    width: 60vh;
 }
+  
