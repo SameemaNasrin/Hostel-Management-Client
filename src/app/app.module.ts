@@ -15,6 +15,8 @@ import { ViewallstudentComponent } from './components/student/viewallstudent/vie
 
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
+import { ViewallroomsComponent } from './components/room/viewallrooms/viewallrooms.component';
+import { AddroomComponent } from './components/room/addroom/addroom.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AddstudentComponent } from './components/student/addstudent/addstudent.
     ViewallstudentComponent,
     ViewbyhidComponent,
     AddstudentComponent,
+    ViewallroomsComponent,
+    AddroomComponent,
   ],
   imports: [
     BrowserModule,
