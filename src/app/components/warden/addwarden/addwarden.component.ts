@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Wardendto } from 'src/app/dto/wardendto';
+import { Hostel } from 'src/app/entities/hostel';
 import { HostelService } from 'src/app/services/hostel.service';
 import { WardenService } from 'src/app/services/warden.service';
 
@@ -14,6 +15,7 @@ export class AddwardenComponent implements OnInit {
   wardendto: Wardendto = new Wardendto();
   responseMsg: string;
   errorMsgs = []
+  hostels: Hostel[] = []
 
   @ViewChild("addWardenForm")
   private form: NgForm
@@ -24,7 +26,8 @@ export class AddwardenComponent implements OnInit {
   ngOnInit () {
     this.hostelService.viewAll().subscribe(
       data => {
-        console.log(data);
+        this.hostels = data
+        console.log(this.hostels);
 
       },
       error => {
@@ -39,11 +42,14 @@ export class AddwardenComponent implements OnInit {
     this.responseMsg = undefined
     this.wardenService.addWarden(this.wardendto).subscribe(
       data => {
-        console.log(data);
+        this.form.reset()
+        this.responseMsg = data.message;
 
       },
       error => {
-        console.log(error);
+        error.error.messages.forEach(e => {
+          this.errorMsgs.push(e)
+        });
       }
     )
 

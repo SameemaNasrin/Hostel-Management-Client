@@ -28,6 +28,17 @@
             <div *ngIf="wardEmail.errors.pattern">Email is not valid</div>
         </div>
 
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Choose Hostel to Allocate Warden</label>
+          <select class="form-select" name="txthost" [(ngModel)]="wardendto.hostelId" #wardHostel="ngModel" required>
+            <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
+            
+          </select>
+        </div>
+        <div *ngIf="wardHostel.invalid && wardHostel.touched" class="alert alert-danger">
+            <div *ngIf="wardHostel.errors.required">Hostel is required</div>
+        </div>
+
         
         <div class="row">
           <input type="submit" value="Add Warden" class="btn btn-success btn-block mt-2" [disabled]="!addWardenForm.valid" />

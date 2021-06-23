@@ -23,6 +23,8 @@
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Hostel Id</th>
+              <th scope="col">Hostel Name</th>
+              <th scope="col">Hostel Address</th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +32,9 @@
               <td>{{ w.id}}</td>
               <td>{{ w.name }}</td>
               <td>{{ w.email }}</td>
-              <td>{{ w.hostelId}}</td>
+              <td>{{ w.hostel.id}}</td>
+              <td>{{ w.hostel.name}}</td>
+              <td>{{ w.hostel.address}}</td>
             </tr>
           </tbody>
         </table>
