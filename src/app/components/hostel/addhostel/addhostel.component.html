@@ -1,4 +1,5 @@
 <form class="form" #addHostel = "ngForm"  (ngSubmit)="add()">
+  <h3 class="text-center">Add New Hostel</h3><hr>
   <a routerLink='/hostel/view' class="btn btn-outline-success back" type="button">Go Back</a><br>
   <div class="alert alert-success" *ngIf="msg!=undefined">
     {{ msg }}
@@ -30,7 +31,7 @@
     <label for="type">Type</label><br>
     <div id="type">
       <input type="radio" name="type" value="boys" [(ngModel)]="hostel.type"> Boys
-      <input type="radio" name="type" value="girls" id="female" [(ngModel)]="hostel.type"> Girls<br>  
+      <input type="radio" name="type" value="girls" [(ngModel)]="hostel.type"> Girls<br>  
     </div>
   </div>
   <div class="form-group">
@@ -49,5 +50,5 @@
     <div *ngIf = "fee.errors.required">Fee is required</div>
   </div>
 
-  <input type="submit" value="Add" class="btn btn-outline-success addhostel" [disabled]="!addHostel.valid">
+  <input type="submit" value="Add" class="btn btn-success addhostel" [disabled]="!addHostel.valid">
 </form>

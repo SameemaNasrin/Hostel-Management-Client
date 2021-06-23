@@ -1,0 +1,22 @@
+
+.page{
+    margin-bottom: 8rem;
+}
+
+.navbar{
+    width: 80%;
+    margin: auto;
+}
+
+.search{
+    display: inline-flex;
+    width: 40vw;
+    margin-right: 2%;
+    position: relative;
+    top: 2px;
+    
+}
+
+.view-option{
+    width: fit-content;
+}

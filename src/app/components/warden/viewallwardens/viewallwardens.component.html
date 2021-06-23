@@ -1,7 +1,8 @@
 <nav class="navbar navbar-light bg-light">
   <div>
-    <input class="search form-control m-2" type="search" placeholder="Search By Warden ID" aria-label="Search"  [(ngModel)] = "wid">
-    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByWId()">Search</button>
+    <input class="search form-control m-2" type="search" placeholder="Search Warden" aria-label="Search"  [(ngModel)] = "id">
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByWId()">Search by Warden Id</button>
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByHId()">Search by Hostel Id</button>
   </div>
 <a  routerLink='/warden/add' class="btn btn-outline-success m-2 addwarden" type="button">Add New Warden</a>
 </nav>
