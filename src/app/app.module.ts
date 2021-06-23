@@ -15,6 +15,8 @@ import { ViewallstudentComponent } from './components/student/viewallstudent/vie
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
+import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
+import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AddwardenComponent } from './components/warden/addwarden/addwarden.comp
     ViewbyhidComponent,
     AddstudentComponent,
     AddwardenComponent,
+    AddvisitorComponent,
+    ViewallvisitorComponent,
   ],
   imports: [
     BrowserModule,

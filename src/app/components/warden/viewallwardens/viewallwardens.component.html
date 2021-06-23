@@ -1,3 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+  <div>
+    <input class="search form-control m-2" type="search" placeholder="Search By Warden ID" aria-label="Search"  [(ngModel)] = "wid">
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByWId()">Search</button>
+  </div>
+<a  routerLink='/warden/add' class="btn btn-outline-success m-2 addwarden" type="button">Add New Warden</a>
+</nav>
+
+<div class="row">
+  <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+    <p class="text-center">{{ e }}</p>
+  </div>
+</div>
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-12">
@@ -5,16 +19,18 @@
         <table class="table" style="background-color: #cfe2ff;">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">Warden Id</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
+              <th scope="col">Hostel Id</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let warden of wardens">
-              <td>{{ warden.id}}</td>
-              <td>{{ warden.name }}</td>
-              <td>{{ warden.email }}</td>
+            <tr *ngFor="let w of wardens">
+              <td>{{ w.id}}</td>
+              <td>{{ w.name }}</td>
+              <td>{{ w.email }}</td>
+              <td>{{ w.hostelId}}</td>
             </tr>
           </tbody>
         </table>

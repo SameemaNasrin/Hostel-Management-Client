@@ -1,4 +1,4 @@
-export class Hostel {
+export class HostelDto {
     id:number;
     name:string;
     contact:string;
