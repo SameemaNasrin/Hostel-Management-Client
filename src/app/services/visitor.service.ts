@@ -18,4 +18,8 @@ export class VisitorService {
   viewById (vid: number): Observable<any> {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/student/${vid}`);
   }
+
+  viewByDate (date: string): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${date}`);
+  }
 }

@@ -9,10 +9,10 @@ import { WardenService } from 'src/app/services/warden.service';
 })
 export class ViewallwardensComponent implements OnInit {
 
-  wardens:Wardendto[]
+  wardens:Warden[]
   errorMsgs = []
-  wid: number;
-  hid:number;
+  id: number;
+  //hid:number;
   constructor(private wardenService: WardenService) { }
   
 
@@ -31,12 +31,12 @@ export class ViewallwardensComponent implements OnInit {
 
   }
   viewByWId () {
-    console.log(this.wid);
-    if (this.wid == undefined || this.wid == null || this.wid <= 0) {
+    console.log(this.id);
+    if (this.id == undefined || this.id == null || this.id <= 0) {
       this.errorMsgs[0] = "Enter the Warden ID greater than 0"
       return;
     }
-    this.wardenService.viewByWId(this.wid).subscribe(
+    this.wardenService.viewByWId(this.id).subscribe(
       data => {
         console.log(data);
         this.wardens = [];
@@ -53,16 +53,20 @@ export class ViewallwardensComponent implements OnInit {
   }
 
   viewByHId () {
-    console.log(this.hid);
-    if (this.hid == undefined || this.hid == null || this.hid <= 0) {
+    console.log(this.id);
+    if (this.id == undefined || this.id == null || this.id <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
-    this.wardenService.viewByHId(this.hid).subscribe(
+    this.wardenService.viewByHId(this.id).subscribe(
       data => {
         console.log(data);
         this.wardens = [];
-        this.wardens.push(data);
+        data.forEach(e => {
+          this.wardens.push(e);
+        });
+          //this.wardens.push(data);
+        console.log(this.wardens);
         this.errorMsgs = undefined;
       },
       error => {

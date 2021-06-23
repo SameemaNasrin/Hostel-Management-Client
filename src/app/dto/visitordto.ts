@@ -1,7 +1,7 @@
 export class Visitordto {
     id:number;
     name:string;
-    number:number;
+    contactNumber:number;
     studentId:number;
     studentRelation:string;
     visitorAddress:string;

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Visitordto } from 'src/app/dto/visitordto';
+import { Component, Input, OnInit } from '@angular/core';
+import { Visitor } from 'src/app/entities/visitor';
 import { VisitorService } from 'src/app/services/visitor.service';
 
 @Component({
@@ -9,28 +9,43 @@ import { VisitorService } from 'src/app/services/visitor.service';
 })
 export class ViewallvisitorComponent implements OnInit {
 
-  visitor: Visitordto[];
+  visitor: Visitor[];
   errorMsgs = []
-  vid: number;
+
+  sid: number;
+  hid:number;
+  date:string;
+
+  searchOption:string;
   constructor(public visitorService: VisitorService) { }
 
   ngOnInit () {
     
   }
 
+  viewOption(){
+    console.log(this.searchOption);
+    if(this.searchOption == "byStudentId"){
+      this.viewById();
+    }
+
+    else if(this.searchOption == "byDate")
+      this.viewByDate();
+
+
+  }
+
   viewById () {
-    console.log(this.vid);
-    if (this.vid == undefined || this.vid == null || this.vid <= 0) {
+    console.log(this.sid);
+    if (this.sid == undefined || this.sid == null || this.sid <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
-    this.visitorService.viewById(this.vid).subscribe(
+    this.visitorService.viewById(this.sid).subscribe(
       data => {
-        console.log(data);
         this.visitor = [];
-        this.visitor.push(data);
+        this.visitor.push(data[0]);
         this.errorMsgs = undefined;
-        console.log(this.visitor);
       },
       error => {
         console.log(error);
@@ -41,5 +56,35 @@ export class ViewallvisitorComponent implements OnInit {
     )
   }
 
+  viewByDate(){
+    console.log(this.date);
+    this.visitorService.viewByDate(this.date).subscribe(
+      data => {
+        this.visitor = [];
+        this.visitor.push(data[0]);//how to get multiple data ?
+        this.errorMsgs = undefined;
+      },
+      error => {
+        console.log(error);
+        this.errorMsgs = error.error.messages;
+        console.log(this.errorMsgs);
+
+      }
+    )
+  }
+
+  /*
+   * Setting the search type 
+   */
+  inputSearchType():string{
+    if(this.searchOption == "byStudentId" || this.searchOption == "byDateHostelId"){
+      return "number";
+    }
+
+    else if(this.searchOption == "byDate"){
+      return "date";
+    }
+
+  }
 }
 
