@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.navbar-toggler-icon{
+  max-width: 25px;
+}
+
+
 .footer-section {
   background: #fff;
   width: 100%;

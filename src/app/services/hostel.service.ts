@@ -19,7 +19,11 @@ export class HostelService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/${hid}`);
   }
 
+  viewByName (name: string): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/name/${name}`);
+  }
+
   addHostel(hostel:HostelDto):Observable<any>{
-    return this.http.post("http://localhost:8082/hostel/add", hostel);
+    return this.http.post(Constants.baseUrl + `${this.prefix}/add`, hostel);
   }
 }
