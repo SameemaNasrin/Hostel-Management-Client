@@ -6,5 +6,5 @@ export class Roomdto {
     hostelId: number;
     roomDesc: string;
     floor: number;
-    maximumSize: number=4;
+    maximumSize: number;
 }

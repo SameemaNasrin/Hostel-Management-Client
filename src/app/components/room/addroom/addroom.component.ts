@@ -27,7 +27,8 @@ export class AddroomComponent implements OnInit {
     this.hostelService.viewAll().subscribe(
       data =>{
         this.hostels=data;
-
+        console.log(this.hostels);
+        
       },
       error =>{
 
@@ -37,12 +38,16 @@ export class AddroomComponent implements OnInit {
   }
 
   addRoom(): void {
+    console.log(this.roomDto);
+    
     this.errorMsgs = []
     this.responseMsg = undefined
     this.roomService.addRoom(this.roomDto).subscribe(
       data => {
         this.form.reset()
-        this.responseMsg = "Generated Room Id is: " + data.roomId;
+        //this.responseMsg = "Generated Room Id is: " + data.roomId;
+        console.log(data);
+        
       },
       error => {
         error.error.messages.forEach(e => {
