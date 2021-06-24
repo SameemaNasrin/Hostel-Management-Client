@@ -19,6 +19,7 @@ import { AddroomComponent } from './components/room/addroom/addroom.component';
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
 import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
+import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/vie
     AddhostelComponent,
     ViewallstudentComponent,
     ViewbyhidComponent,
+    AddallotmentComponent,
     AddstudentComponent,
     ViewallroomsComponent,
     AddroomComponent,
