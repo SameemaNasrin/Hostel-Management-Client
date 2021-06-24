@@ -1,7 +1,7 @@
 <div class="row page">
     <nav class="navbar navbar-light bg-light">
       <div>
-        <input class="search form-control m-2" type="search" placeholder="Search By Hostel ID" aria-label="Search"  [(ngModel)] = "hid">
+        <input class="search form-control m-2" type="number" placeholder="Search By Hostel ID" aria-label="Search"  [(ngModel)] = "hid">
         <button class="btn btn-outline-success m-2" type="submit" (click) = "viewById()">Search</button>
       </div>
       <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
