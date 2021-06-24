@@ -74,8 +74,10 @@
 } */
 
 .view-option{
-    padding: 2rem;
+    /* padding: 2rem; */
+    width: fit-content;
 }
+
 
 
 
