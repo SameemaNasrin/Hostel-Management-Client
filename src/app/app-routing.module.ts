@@ -11,6 +11,8 @@ import { AddstudentComponent } from './components/student/addstudent/addstudent.
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
 import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
+import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
+import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +41,12 @@ const routes: Routes = [
     path: 'warden', children: [
       { path: 'view', component: ViewallwardensComponent },
       { path: 'add' , component: AddwardenComponent},
+    ]
+  },
+  {
+    path: 'allotment', children: [
+      { path: 'view', component: ViewbyhidComponent },
+      { path: 'add' , component: AddallotmentComponent},
     ]
   }
 
