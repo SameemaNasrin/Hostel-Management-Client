@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
+import { ViewallroomsComponent } from './components/room/viewallrooms/viewallrooms.component';
+import { AddroomComponent } from './components/room/addroom/addroom.component';
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
 import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
@@ -34,6 +36,13 @@ const routes: Routes = [
     path: 'student', children: [
       { path: 'view', component: ViewallstudentComponent },
       { path: 'add', component: AddstudentComponent },
+    ]
+  },
+
+  {
+    path: 'room', children: [
+      { path: 'view', component: ViewallroomsComponent },
+      { path: 'add', component: AddroomComponent },
     ]
   },
 

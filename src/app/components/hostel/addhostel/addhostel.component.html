@@ -1,4 +1,5 @@
-<form class="form" #addHostel = "ngForm"  (ngSubmit)="add()">
+<form class="form col-md-4" #addHostel = "ngForm"  (ngSubmit)="add()">
+  <h3 class="text-center">Add New Hostel</h3><hr>
   <a routerLink='/hostel/view' class="btn btn-outline-success back" type="button">Go Back</a><br>
   <div class="alert alert-success" *ngIf="msg!=undefined">
     {{ msg }}
@@ -49,5 +50,5 @@
     <div *ngIf = "fee.errors.required">Fee is required</div>
   </div>
 
-  <input type="submit" value="Add" class="btn btn-outline-success addhostel" [disabled]="!addHostel.valid">
+  <input type="submit" value="Add" class="btn btn-primary addhostel" [disabled]="!addHostel.valid">
 </form>

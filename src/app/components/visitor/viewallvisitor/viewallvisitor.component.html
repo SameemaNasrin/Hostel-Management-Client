@@ -1,7 +1,7 @@
 <div class="row page">
   
     <nav class="navbar navbar-light bg-light">
-      <select class="btn btn-outline-success view-option"  [(ngModel)] = "searchOption" >
+      <select class="form-select  view-option"  [(ngModel)] = "searchOption" >
         <option value="byStudentId" selected>By Student ID</option>
         <option value="byDate">By Date</option>
         <option value="byDateHostelId">By Date and hostel ID</option>
@@ -10,17 +10,17 @@
       <div class="search-bar">
         
         <input class="search form-control m-2" type="date" placeholder="Search..." aria-label="Search"  [(ngModel)] = "date" [style.display] = "searchOption == 'byDateHostelId' ? 'inline' : 'none' ">
-        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search"  [(ngModel)]= "searchOption == 'byDate'? date : searchOption == 'byDateHostelId'? hid : sid">
+        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"> <!--[(ngModel)]= " (searchOption == 'byDate') ? date : (searchOption == 'byDateHostelId') ? hid : sid"-->
         <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()">Search</button>
       </div>
 
       <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Visitor</a>
     </nav>
 
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
         <p class="text-center">{{ e }}</p>
-      </div>
+    </div>
     </div>
   <div class="container">
     <div class="row mt-5">

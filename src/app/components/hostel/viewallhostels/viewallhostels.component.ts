@@ -11,7 +11,11 @@ export class ViewallhostelsComponent implements OnInit {
 
   hostels: HostelDto[];
   errorMsgs = []
-  hid: number;
+  // hid: number;
+
+  value:any;
+  searchOption:string;
+
   constructor(public hostelService: HostelService) { }
 
   ngOnInit () {
@@ -49,14 +53,12 @@ export class ViewallhostelsComponent implements OnInit {
   }
 
   viewById () {
-    // if(this.hid == NaN)
-    //   this.viewAll();
-    console.log(this.hid);
-    if (this.hid == undefined || this.hid == null || this.hid <= 0) {
+    console.log(this.value);
+    if (this.value == undefined || this.value == null || this.value <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
-    this.hostelService.viewById(this.hid).subscribe(
+    this.hostelService.viewById(this.value).subscribe(
       data => {
         console.log(data);
         this.hostels = [];
@@ -70,5 +72,46 @@ export class ViewallhostelsComponent implements OnInit {
 
       }
     )
+  }
+
+  viewByName(){
+    this.errorMsgs = [];
+    this.hostelService.viewByName(this.value).subscribe(
+      data => {
+        this.hostels = data;
+        console.log(this.hostels)
+      },
+      error => {
+        this.errorMsgs.push(error.error.messages)
+
+      }
+    )
+  }
+  
+  viewOption(){
+    console.log(this.searchOption);
+    if(this.searchOption == "byId"){
+      this.viewById();
+    }
+
+    else if(this.searchOption == "byName"){
+      this.viewByName();
+    }
+
+    else if(this.searchOption == "viewAll"){
+      this.viewAll();
+    }
+  }
+
+ 
+
+  inputSearchType():string{
+    if(this.searchOption == "byId"){
+      return "number";
+    }
+
+    else if(this.searchOption == "byName"){
+      return "text";
+    }
   }
 }

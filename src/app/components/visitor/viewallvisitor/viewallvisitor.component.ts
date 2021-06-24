@@ -12,39 +12,56 @@ export class ViewallvisitorComponent implements OnInit {
   visitor: Visitor[];
   errorMsgs = []
 
-  sid: number;
-  hid:number;
-  date:string;
-
-  searchOption:string;
-  constructor(public visitorService: VisitorService) { }
-
-  ngOnInit () {
-    
+  // sid: number;
+  // hid:number;
+  date: string;
+  value: any;
+  visitors: Visitor[]
+  searchOption: string;
+  constructor(public visitorService: VisitorService) {
+    this.searchOption == "byStudentId"
   }
 
-  viewOption(){
+  ngOnInit () {
+    this.visitorService.viewAll().subscribe(
+      data => {
+        this.visitors = data
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
+  }
+
+  viewOption () {
     console.log(this.searchOption);
-    if(this.searchOption == "byStudentId"){
+    if (this.searchOption == "byStudentId") {
       this.viewById();
     }
 
-    else if(this.searchOption == "byDate")
+    else if (this.searchOption == "byDate")
       this.viewByDate();
+
+    else if (this.searchOption == "byDateHostelId") {
+      this.viewByDateHostelId();
+    }
 
 
   }
 
   viewById () {
-    console.log(this.sid);
-    if (this.sid == undefined || this.sid == null || this.sid <= 0) {
+    console.log(this.value);
+    if (this.value == undefined || this.value == null || this.value <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
-    this.visitorService.viewById(this.sid).subscribe(
+    this.visitorService.viewById(this.value).subscribe(
       data => {
         this.visitor = [];
-        this.visitor.push(data[0]);
+        data.forEach(e => {
+          this.visitor.push(e);
+        });
         this.errorMsgs = undefined;
       },
       error => {
@@ -56,12 +73,33 @@ export class ViewallvisitorComponent implements OnInit {
     )
   }
 
-  viewByDate(){
-    console.log(this.date);
-    this.visitorService.viewByDate(this.date).subscribe(
+  viewByDate () {
+    console.log(this.value);
+    this.visitorService.viewByDate(this.value).subscribe(
       data => {
         this.visitor = [];
-        this.visitor.push(data[0]);//how to get multiple data ?
+        data.forEach(e => {
+          this.visitor.push(e);
+        });
+        this.errorMsgs = undefined;
+      },
+      error => {
+        console.log(error);
+        this.errorMsgs = error.error.messages;
+        console.log(this.errorMsgs);
+
+      }
+    )
+  }
+
+  viewByDateHostelId () {
+    console.log("in funciton")
+    this.visitorService.viewByDateHostelId(this.date, this.value).subscribe(
+      data => {
+        this.visitor = [];
+        data.forEach(e => {
+          this.visitor.push(e);
+        });
         this.errorMsgs = undefined;
       },
       error => {
@@ -76,12 +114,12 @@ export class ViewallvisitorComponent implements OnInit {
   /*
    * Setting the search type 
    */
-  inputSearchType():string{
-    if(this.searchOption == "byStudentId" || this.searchOption == "byDateHostelId"){
+  inputSearchType (): string {
+    if (this.searchOption == "byStudentId" || this.searchOption == "byDateHostelId") {
       return "number";
     }
 
-    else if(this.searchOption == "byDate"){
+    else if (this.searchOption == "byDate") {
       return "date";
     }
 

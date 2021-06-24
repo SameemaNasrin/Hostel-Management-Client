@@ -14,6 +14,8 @@ import { ViewallstudentComponent } from './components/student/viewallstudent/vie
 
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 import { AddstudentComponent } from './components/student/addstudent/addstudent.component';
+import { ViewallroomsComponent } from './components/room/viewallrooms/viewallrooms.component';
+import { AddroomComponent } from './components/room/addroom/addroom.component';
 import { AddwardenComponent } from './components/warden/addwarden/addwarden.component';
 import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
@@ -31,6 +33,8 @@ import { AddallotmentComponent } from './components/allotment/addallotment/addal
     ViewbyhidComponent,
     AddallotmentComponent,
     AddstudentComponent,
+    ViewallroomsComponent,
+    AddroomComponent,
     AddwardenComponent,
     AddvisitorComponent,
     ViewallvisitorComponent,

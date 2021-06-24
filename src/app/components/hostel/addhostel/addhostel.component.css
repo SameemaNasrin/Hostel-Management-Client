@@ -1,7 +1,5 @@
 .form-group{
     margin-bottom: 1.5vh;
-    width: 60vh;
-    margin: auto;
     margin-bottom: 1rem;
 }
 
@@ -18,6 +16,21 @@
 }
 
 .form{
-    width: 60vh;
+    max-width: 100vw;
     margin: auto;
+    
+    padding: 20px;
+    background-color: #cfe2ff;
+    margin-top: 20px;
+    margin-bottom: 12%;
+  }
+
+.form-control{
+    
+    max-width: 100vw;
 }
+
+.addhostel{
+    width: 6rem;
+
+  }
