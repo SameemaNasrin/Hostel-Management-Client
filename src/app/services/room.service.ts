@@ -23,7 +23,13 @@ export class RoomService {
   addRoom (roomDto: Roomdto): Observable<any> {
     return this.http.post(Constants.baseUrl + `${this.prefix}add`, roomDto);
   }
+  getRoomsByHostelId (hid:number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${hid}`);
+  }
 
+  getRoomsByFloor(flr:number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/${flr}`);
+  }
 }
 
 
