@@ -29,7 +29,7 @@ export class AddstudentComponent implements OnInit {
     this.studentService.addStudent(this.studentDto).subscribe(
       data => {
         this.form.reset()
-        this.responseMsg = "Generated Student Id is: " + data.id;
+        this.responseMsg = data.message;
       },
       error => {
         error.error.messages.forEach(e => {
