@@ -39,7 +39,7 @@
 }
 
 .card{
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     margin-top: 5rem;
     width: 20rem;
     border-radius: 1rem;   
@@ -68,10 +68,10 @@
     width: 100%;
 }
 
-
+/* 
 .addhostel{
     margin-left: 3rem;
-}
+} */
 
 .view-option{
     padding: 2rem;

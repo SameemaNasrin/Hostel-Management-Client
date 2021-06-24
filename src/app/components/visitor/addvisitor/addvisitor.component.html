@@ -1,3 +1,90 @@
-<p>
-  addvisitor works!
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center" *ngIf="responseMsg!=undefined">
+    <div class="alert alert-success col-md-4 mt-2 mb-0">
+      <p class="text-center">{{ responseMsg }}</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 login-form-card">
+      <h3 class="text-center">Add New Visitor</h3>
+      
+      <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+        <p *ngFor="let e of errorMsgs">{{ e }}</p>
+      </div>
+      <form #addVisitorForm="ngForm" (ngSubmit)="addVisitor()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Visitor Name</label>
+          <input type="text" class="form-control" name="txtname" placeholder="Enter Visitor Name" [(ngModel)]='visitorDto.name' #visitorName="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="visitorName.invalid && visitorName.touched" class="alert alert-danger">
+            <div *ngIf="visitorName.errors.required">Visitor Name is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" name="txtemail" placeholder="Enter Mobile Number" [(ngModel)]="visitorDto.number" #visitorNumber="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="[1-9]{1}[0-9]{9}">
+        </div>
+        <div *ngIf="visitorNumber.invalid && visitorNumber.touched" class="alert alert-danger">
+            <div *ngIf="visitorNumber.errors.required">Mobile Number is required</div>
+            <div *ngIf="visitorNumber.errors.pattern">Mobile Number should be 10 digits</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Select Student</label>
+          <select class="form-select" name="txtstud" [(ngModel)]="visitorDto.studentId" #visitorStud="ngModel" required>
+            <option value="{{ s.id }}" *ngFor="let s of students">{{ s.name }} - {{ s.email }}</option>
+            
+          </select>
+        </div>
+        <div *ngIf="visitorStud.invalid && visitorStud.touched" class="alert alert-danger">
+            <div *ngIf="visitorStud.errors.required">Student is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Relation with Student</label>
+          <input type="text" class="form-control" name="txtrelation" placeholder="Enter relation with student" [(ngModel)]='visitorDto.studentRelation' #visitorRelation="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="visitorRelation.invalid && visitorRelation.touched" class="alert alert-danger">
+            <div *ngIf="visitorRelation.errors.required">Relation with student is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Visitor Address</label>
+          <input type="text" class="form-control" name="txtaddress" placeholder="Enter Visitor Address" [(ngModel)]='visitorDto.visitorAddress' #visitorAddress="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="visitorAddress.invalid && visitorAddress.touched" class="alert alert-danger">
+            <div *ngIf="visitorAddress.errors.required">Visitor Address is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Visit Reason</label>
+          <input type="text" class="form-control" name="txtreason" placeholder="Enter visit reason" [(ngModel)]='visitorDto.reason' #visitReason="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="visitReason.invalid && visitReason.touched" class="alert alert-danger">
+            <div *ngIf="visitReason.errors.required">Visit Reason is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Date of Visiting</label>
+          <input type="date" class="form-control" name="txtdate" [(ngModel)]='visitorDto.dateOfVisiting' #visitDate="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div *ngIf="visitDate.invalid && visitDate.touched" class="alert alert-danger">
+            <div *ngIf="visitDate.errors.required">Visit Date is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Select Hostel</label>
+          <select class="form-select" name="txthost" [(ngModel)]="visitorDto.hostelId" #visitorHostel="ngModel" required>
+            <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
+            
+          </select>
+        </div>
+        <div *ngIf="visitorHostel.invalid && visitorHostel.touched" class="alert alert-danger">
+            <div *ngIf="visitorHostel.errors.required">Hostel is required</div>
+        </div>
+        
+        <div class="row">
+          <input type="submit" value="Add Warden" class="btn btn-success btn-block mt-2" [disabled]="!addVisitorForm.valid" />
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
