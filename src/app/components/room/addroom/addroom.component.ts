@@ -15,45 +15,38 @@ export class AddroomComponent implements OnInit {
   roomDto: Roomdto = new Roomdto();
   responseMsg: string;
   errorMsgs = []
-  hostels=[]
+  hostels = []
   @ViewChild("addRoomForm")
   private form: NgForm
-  constructor(private roomService: RoomService,private hostelService:HostelService) {
-    
-    
-  }
+  constructor(private roomService: RoomService, private hostelService: HostelService) { }
 
   ngOnInit () {
     this.hostelService.viewAll().subscribe(
-      data =>{
-        this.hostels=data;
+      data => {
+        this.hostels = data;
         console.log(this.hostels);
-        
+
       },
-      error =>{
+      error => {
+        console.log(error);
 
       }
     )
-    
+
   }
 
-  addRoom(): void {
-    console.log(this.roomDto);
-    
+  addRoom (): void {
     this.errorMsgs = []
     this.responseMsg = undefined
     this.roomService.addRoom(this.roomDto).subscribe(
       data => {
         this.form.reset()
-        //this.responseMsg = "Generated Room Id is: " + data.roomId;
-        console.log(data);
-        
+        this.responseMsg = data.message;
       },
       error => {
-        error.error.messages.forEach(e => {
-          this.errorMsgs.push(e)
+        error.error.messages.forEach(element => {
+          this.errorMsgs.push(element)
         });
-
       }
     )
   }

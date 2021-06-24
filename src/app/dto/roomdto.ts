@@ -1,10 +1,7 @@
-
-
 export class Roomdto {
-    
     roomNo: string;
-    hostelId: number;
+    hostel_id: number;
     roomDesc: string;
     floor: number;
-    maximumSize: number;
+    maximumSize: number = 4;
 }

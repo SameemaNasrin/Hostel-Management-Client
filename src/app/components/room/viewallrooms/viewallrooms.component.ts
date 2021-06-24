@@ -10,14 +10,41 @@ import { RoomService } from 'src/app/services/room.service';
 export class ViewallroomsComponent implements OnInit {
 
   rooms: Room[]
+  searchItem: string
+  showingAllRooms: boolean
+  showingAvailableRooms: boolean
   constructor(private roomService: RoomService) { }
 
   ngOnInit () {
-    this.roomService.getRooms().subscribe(
+    this.roomService.getAllRooms().subscribe(
       data => {
+        this.showingAllRooms = true
+        this.showingAvailableRooms = false
         this.rooms = data;
-        console.log(this.rooms);
-        
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
+  }
+
+  searchByHostelId (): void {
+
+  }
+  searchByFloor (): void {
+
+  }
+  searchByHostelIdAndFloor (): void {
+
+  }
+  viewAvailableRooms (): void {
+    this.roomService.getAvailableRooms().subscribe(
+      data => {
+        this.showingAllRooms = false
+        this.showingAvailableRooms = true
+        this.rooms = data
       },
       error => {
         console.log(error);

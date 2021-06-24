@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row mt-5 d-flex justify-content-center">
-    <!-- <div class="col-md-6">
+    <div class="col-md-6">
       <input class="search form-control m-2" type="search" [(ngModel)]="searchItem" placeholder="Search Room" aria-label="Search">
-    </div> -->
+    </div>
   </div>
   <div class="row d-flex justify-content-center">
-    <!-- <div class="col-md-4">
+    <div class="col-md-4">
       <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelId()">Search by Hostel ID</button>
     </div>
     <div class="col-md-4">
@@ -13,42 +13,51 @@
     </div>
     <div class="col-md-4">
       <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelIdAndFloor()">Search by Hostel Id And Floor</button>
-    </div> -->
+    </div>
   
+  </div>
+  <hr>
+  <div class="row d-flex justify-content-center mb-2">
+    <div class="col-md-4" *ngIf="showingAllRooms">
+      <button class="btn btn-success" (click)="viewAvailableRooms()">View Only Available Rooms</button>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <table class="table" style="background-color: #cfe2ff;">
-            <thead>
-              <tr>
-                <th scope="col">Room ID</th>
-                <th scope="col">Room No.</th>
-                <th scope="col">Room Desc</th>
-                <th scope="col">Floor</th>
-                <th scope="col">Max Size</th>
-                <th scope="col">Hostel Id</th>
-                <th scope="col">Hostel Name</th>
-                
-               
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let room of rooms">
-                <td>{{room.roomId}}</td>
-                <td>{{room.roomNo}}</td>
-                <td>{{room.roomDesc}}</td>
-                <td>{{room.floor}}</td>
-                <td>{{room.maximumSize}}</td>
-                <td>{{room.hostel.id}}</td>
-                <td>{{room.hostel.name}}</td>
-              </tr>
+    <div class="col-md-4" *ngIf="showingAvailableRooms">
+      <button class="btn btn-success" (click)="ngOnInit()">View All Rooms</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" style="background-color: #cfe2ff;">
+          <thead>
+            <tr>
+              <th scope="col">Room ID</th>
+              <th scope="col">Room No.</th>
+              <th scope="col">Room Desc</th>
+              <th scope="col">Floor</th>
+              <th scope="col">Max Size</th>
+              <th scope="col">Hostel Id</th>
+              <th scope="col">Hostel Name</th>
               
-            </tbody>
-          </table>
-        </div>
-        
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let room of rooms">
+              <td>{{room.roomId}}</td>
+              <td>{{room.roomNo}}</td>
+              <td>{{room.roomDesc}}</td>
+              <td>{{room.floor}}</td>
+              <td>{{room.maximumSize}}</td>
+              <td>{{room.hostel.id}}</td>
+              <td>{{room.hostel.name}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
       </div>
+      
     </div>
+  </div>
     
   </div>

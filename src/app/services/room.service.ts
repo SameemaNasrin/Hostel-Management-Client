@@ -12,8 +12,12 @@ export class RoomService {
   prefix: string = "room/";
   constructor(private http: HttpClient) { }
 
-  getRooms (): Observable<any> {
-    return this.http.get(Constants.baseUrl + `${this.prefix}get`);
+  getAllRooms (): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/all`);
+  }
+
+  getAvailableRooms (): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/all/available`);
   }
 
   addRoom (roomDto: Roomdto): Observable<any> {

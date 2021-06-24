@@ -8,9 +8,9 @@
     <div class="col-md-4 login-form-card">
       <h3 class="text-center">Add New Room</h3>
       
-      <!-- <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+      <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
         <p *ngFor="let e of errorMsgs">{{ e }}</p>
-      </div> -->
+      </div>
       <form #addRoomForm="ngForm" (ngSubmit)="addRoom()">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Room No</label>
@@ -30,7 +30,7 @@
 
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Hostel to Allocate Room</label>
-          <select class="form-select" name="txthost" [(ngModel)]="roomDto.hostelId" #roomHostel="ngModel" required>
+          <select class="form-select" name="txthost" [(ngModel)]="roomDto.hostel_id" #roomHostel="ngModel" required>
             <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
             
           </select>
