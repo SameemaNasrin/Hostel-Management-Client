@@ -30,11 +30,14 @@ nav{
 a{
   /* border-radius: 8px; */
   padding: 1rem;
+  
+  /* transition: border-left 0.5s; */
 }
 
 a:hover{
   background-color: #004D40;
   color:white;
+  /* border-left: 2px solid rgb(27, 26, 26); */
 }
 
 a:active{

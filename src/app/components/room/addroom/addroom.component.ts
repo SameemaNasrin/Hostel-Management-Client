@@ -13,9 +13,14 @@ import { RoomService } from 'src/app/services/room.service';
 export class AddroomComponent implements OnInit {
 
   roomDto: Roomdto = new Roomdto();
-  responseMsg: string;
+  responseMsg = [];
+  msg = []
   errorMsgs = []
   hostels = []
+  room = 0;
+
+  noOfRooms = 1;
+
   @ViewChild("addRoomForm")
   private form: NgForm
   constructor(private roomService: RoomService, private hostelService: HostelService) { }
@@ -24,7 +29,6 @@ export class AddroomComponent implements OnInit {
     this.hostelService.viewAll().subscribe(
       data => {
         this.hostels = data;
-        console.log(this.hostels);
 
       },
       error => {
@@ -35,20 +39,43 @@ export class AddroomComponent implements OnInit {
 
   }
 
+  numToAlpha(num:number){
+    var s = '', t:number;
+  
+    while (num > 0) {
+      t = (num - 1) % 26;
+      s = String.fromCharCode(65 + t) + s;
+      num = (num - t)/26 | 0;
+    }
+    return s || undefined;
+  }
+  
+
   addRoom (): void {
-    this.errorMsgs = []
-    this.responseMsg = undefined
-    this.roomService.addRoom(this.roomDto).subscribe(
-      data => {
-        this.form.reset()
-        this.responseMsg = data.message;
-      },
-      error => {
-        error.error.messages.forEach(element => {
-          this.errorMsgs.push(element)
-        });
+    if(this.noOfRooms > 1){
+     
+      this.errorMsgs = []
+      this.responseMsg = []
+
+      for(this.room = 0; this.room< this.noOfRooms; this.room++){
+        let random = Math.floor(Math.random()*100);
+       
+        this.roomDto.roomNo = this.roomDto.floor + '' + this.numToAlpha(this.room+1) + random;
+        this.roomService.addRoom(this.roomDto).subscribe(
+          data => {
+            this.form.reset();       
+            this.responseMsg.push(data.message)
+          },
+          error => {
+            error.error.messages.forEach(element => {
+              this.errorMsgs.push(element)
+            });
+          }
+        )
+
       }
-    )
+    }
+   
   }
 
 }

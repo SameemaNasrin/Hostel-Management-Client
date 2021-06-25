@@ -27,7 +27,7 @@ export class ViewallhostelsComponent implements OnInit {
       },
 
       error => {
-        console.log(error);
+        this.hostels = [];
         this.errorMsgs = error.error.messages;
         this.hostels = undefined;
 
@@ -44,10 +44,8 @@ export class ViewallhostelsComponent implements OnInit {
       },
 
       error => {
-        console.log(error);
+        this.hostels = [];
         this.errorMsgs = error.error.messages;
-        this.hostels = undefined;
-
       }
     )
   }
@@ -66,10 +64,8 @@ export class ViewallhostelsComponent implements OnInit {
         this.errorMsgs = undefined;
       },
       error => {
-        console.log(error);
+        this.hostels = [];
         this.errorMsgs = error.error.messages;
-        console.log(this.errorMsgs);
-
       }
     )
   }
@@ -79,9 +75,10 @@ export class ViewallhostelsComponent implements OnInit {
     this.hostelService.viewByName(this.value).subscribe(
       data => {
         this.hostels = data;
-        console.log(this.hostels)
       },
       error => {
+        this.hostels = [];
+
         this.errorMsgs.push(error.error.messages)
 
       }

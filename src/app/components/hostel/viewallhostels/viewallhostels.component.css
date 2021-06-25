@@ -22,6 +22,9 @@
     
 }
 
+/* i{
+    font-size:15rem;
+} */
 
 .card-img-top{
     max-width: 20rem;
@@ -32,11 +35,18 @@
 .con{
     width: 20rem;
     height: 10rem;
-    background-color: aquamarine;
     position: relative;
     right: 0.8rem;
     border-radius: 1rem;
 }
+/* 
+.card-body{
+    display: none;
+}
+
+.con:hover .card-body{
+    display: inline-block;
+} */
 
 .card{
     /* margin-left: 2rem; */

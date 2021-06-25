@@ -25,11 +25,31 @@ export class ViewallvisitorComponent implements OnInit {
   ngOnInit () {
     this.visitorService.viewAll().subscribe(
       data => {
-        this.visitors = data
+        this.visitors = [];
+        data.forEach(e => {
+          this.visitors.push(e);
+        });
+        this.errorMsgs = undefined;
       },
       error => {
-        console.log(error);
+        this.visitors = [];
+        this.errorMsgs = error.error.messages;
+      }
+    )
+  }
 
+  viewAll(){
+    this.visitorService.viewAll().subscribe(
+      data => {
+        this.visitors = [];
+        data.forEach(e => {
+          this.visitors.push(e);
+        });
+        this.errorMsgs = undefined;
+      },
+      error => {
+        this.visitors = [];
+        this.errorMsgs = error.error.messages;
       }
     )
   }
@@ -47,6 +67,9 @@ export class ViewallvisitorComponent implements OnInit {
       this.viewByDateHostelId();
     }
 
+    else if(this.searchOption == "viewAll"){
+      this.viewAll();
+    }
 
   }
 
@@ -58,17 +81,15 @@ export class ViewallvisitorComponent implements OnInit {
     }
     this.visitorService.viewById(this.value).subscribe(
       data => {
-        this.visitor = [];
+        this.visitors = [];
         data.forEach(e => {
-          this.visitor.push(e);
+          this.visitors.push(e);
         });
         this.errorMsgs = undefined;
       },
       error => {
-        console.log(error);
+        this.visitors = [];
         this.errorMsgs = error.error.messages;
-        console.log(this.errorMsgs);
-
       }
     )
   }
@@ -77,13 +98,15 @@ export class ViewallvisitorComponent implements OnInit {
     console.log(this.value);
     this.visitorService.viewByDate(this.value).subscribe(
       data => {
-        this.visitor = [];
+        this.visitors = [];
         data.forEach(e => {
-          this.visitor.push(e);
+          this.visitors.push(e);
         });
         this.errorMsgs = undefined;
       },
       error => {
+        
+        this.visitors = [];
         console.log(error);
         this.errorMsgs = error.error.messages;
         console.log(this.errorMsgs);
@@ -93,20 +116,17 @@ export class ViewallvisitorComponent implements OnInit {
   }
 
   viewByDateHostelId () {
-    console.log("in funciton")
     this.visitorService.viewByDateHostelId(this.date, this.value).subscribe(
       data => {
-        this.visitor = [];
+        this.visitors = [];
         data.forEach(e => {
-          this.visitor.push(e);
+          this.visitors.push(e);
         });
         this.errorMsgs = undefined;
       },
-      error => {
-        console.log(error);
+      error => {        
+        this.visitors = [];
         this.errorMsgs = error.error.messages;
-        console.log(this.errorMsgs);
-
       }
     )
   }

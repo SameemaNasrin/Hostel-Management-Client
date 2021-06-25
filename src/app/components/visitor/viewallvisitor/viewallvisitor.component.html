@@ -1,8 +1,9 @@
 <div class="row page">
   
     <nav class="navbar navbar-light bg-light">
-      <select class="form-select  view-option"  [(ngModel)] = "searchOption" >
-        <option value="byStudentId" selected>By Student ID</option>
+      <select class="form-select  view-option"  [(ngModel)] = "searchOption" >        
+        <option value="viewAll" selected>View All</option>
+        <option value="byStudentId">By Student ID</option>
         <option value="byDate">By Date</option>
         <option value="byDateHostelId">By Date and hostel ID</option>
       </select>
@@ -14,7 +15,7 @@
         <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()">Search</button>
       </div>
 
-      <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Visitor</a>
+      <a  routerLink='/visitor/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Visitor</a>
     </nav>
 
     <div class="row justify-content-center">
@@ -41,7 +42,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let v of visitor">
+              <tr *ngFor="let v of visitors">
                 <td>{{ v.id}}</td>
                 <td>{{ v.visitorName }}</td>
                 <td>{{ v.contactNumber }}</td>
