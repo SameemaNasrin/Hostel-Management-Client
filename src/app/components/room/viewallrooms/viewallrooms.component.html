@@ -5,6 +5,11 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center">
+    <div class="col-md-6 alert alert-danger" *ngIf="errorMsgs.length > 0">
+      <p *ngFor="let e of errorMsgs">{{ e }}</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
     <div class="col-md-4">
       <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelId()">Search by Hostel ID</button>
     </div>
