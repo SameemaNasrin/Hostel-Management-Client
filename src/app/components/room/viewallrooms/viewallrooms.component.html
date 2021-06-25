@@ -3,6 +3,9 @@
     <div class="col-md-6">
       <input class="search form-control m-2" type="search" [(ngModel)]="searchItem" placeholder="Search Room" aria-label="Search">
     </div>
+    <div class="col-md-4">
+      <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelId()">Search by Hostel ID</button>
+    </div>
   </div>
   <div class="row d-flex justify-content-center">
     <div class="col-md-6 alert alert-danger" *ngIf="errorMsgs.length > 0">
@@ -10,26 +13,65 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center">
+
     <div class="col-md-4">
-      <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelId()">Search by Hostel ID</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByFloor()">Search by Floor</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-outline-success btn-block m-2" type="submit" (click)="searchByHostelIdAndFloor()">Search by Hostel Id And Floor</button>
+      <!-- <button type="button" class="btn btn-outline-success btn-block m-2" (click)="showChildModal()">Search by Hostel Id And Floor</button> -->
+      <!-- <button class="" data-bs-toggle="modal" data-bs-target="#exampleModal"></button> -->
+      <button type="button" class="btn btn-outline-success btn-block m-2" (click)="openModal(template)">Search by Hostel Id And Floor</button>
     </div>
   
   </div>
   <hr>
   <div class="row d-flex justify-content-center mb-2">
     <div class="col-md-4" *ngIf="showingAllRooms">
-      <button class="btn btn-success" (click)="viewAvailableRooms()">View Only Available Rooms</button>
+      <button class="btn btn-success" (click)="viewAvailableRooms()">View Only Available Rooms (All hostels)</button>
     </div>
     <div class="col-md-4" *ngIf="showingAvailableRooms">
-      <button class="btn btn-success" (click)="ngOnInit()">View All Rooms</button>
+      <button class="btn btn-success" (click)="ngOnInit()">View All Rooms (All hostels)</button>
     </div>
   </div>
+  <ng-template #template>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Search by Hostel Id And Floor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 alert alert-danger" *ngIf="modalErrorMsgs.length > 0">
+            <p *ngFor="let e of modalErrorMsgs">{{ e }}</p>
+          </div>
+        </div>
+        <form #modalForm="ngForm">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Choose Hostel</label>
+            <select class="form-select" name="txtsearchhost" [(ngModel)]="searchHostelId" #searchHostel="ngModel" required>
+              <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
+              
+            </select>
+          </div>
+          <div *ngIf="searchHostel.invalid && searchHostel.touched" class="alert alert-danger">
+              <div *ngIf="searchHostel.errors.required">Hostel is required</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Choose Floor</label>
+            <select class="form-select" name="txtsearchfloor" [(ngModel)]="floor" #searchFloor="ngModel" required>
+              <option value="{{ f }}" *ngFor="let f of [1,2,3,4,5]">{{ f }}</option>
+              
+            </select>
+          </div>
+          <div *ngIf="searchFloor.invalid && searchFloor.touched" class="alert alert-danger">
+              <div *ngIf="searchFloor.errors.required">Floor is required</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary btn-block" [disabled]="!modalForm.valid" (click)="searchByHostelIdAndFloor()">Search</button>
+      </div>
+    </div>
+  </ng-template>
+  
   <div class="row">
     <div class="col-md-12">
       <div class="table-responsive">
@@ -65,4 +107,4 @@
     </div>
   </div>
     
-  </div>
+</div>

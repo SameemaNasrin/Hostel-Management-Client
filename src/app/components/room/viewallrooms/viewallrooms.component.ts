@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Hostel } from 'src/app/entities/hostel';
 import { Room } from 'src/app/entities/room';
+import { HostelService } from 'src/app/services/hostel.service';
 import { RoomService } from 'src/app/services/room.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-viewallrooms',
@@ -9,16 +12,30 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class ViewallroomsComponent implements OnInit {
 
+  modalRef: BsModalRef;
+
   rooms: Room[]
+  hostels: Hostel[]
   searchItem: string
   showingAllRooms: boolean
   showingAvailableRooms: boolean
   hostelId: number;
+  searchHostelId: number;
   errorMsgs = []
   floor: number;
-  constructor(private roomService: RoomService) { }
+  modalErrorMsgs = []
+  constructor(private roomService: RoomService, private hostelService: HostelService, private modalService: BsModalService) { }
 
   ngOnInit () {
+    this.hostelService.viewAll().subscribe(
+      data => {
+        this.hostels = data;
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
     this.roomService.getAllRooms().subscribe(
       data => {
         this.showingAllRooms = true
@@ -33,20 +50,52 @@ export class ViewallroomsComponent implements OnInit {
     )
   }
 
+  openModal (template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  closeModal () {
+    this.modalService.hide();
+  }
+
+
+
   searchByHostelId (): void {
-
+    this.errorMsgs = []
+    if (!/\D/.test(this.searchItem)) {
+      this.roomService.getRoomsByHostelId(parseInt(this.searchItem)).subscribe(
+        data => {
+          this.rooms = data
+        },
+        error => {
+          error.error.messages.forEach(element => {
+            this.errorMsgs.push(element)
+          });
+        }
+      )
+    }
+    else {
+      this.rooms = []
+      this.errorMsgs.push("ID must be digits only")
+      return;
+    }
   }
-
-
-  searchByFloor (): void {
-
-
-
-  }
-
-
 
   searchByHostelIdAndFloor (): void {
+    this.modalErrorMsgs = []
+    this.roomService.getRoomsByFloorAndHostelId(this.searchHostelId, this.floor).subscribe(
+      data => {
+        console.log(data);
+        this.rooms = data;
+        this.closeModal()
+      },
+      error => {
+        error.error.messages.forEach(element => {
+          this.modalErrorMsgs.push(element)
+        });
+
+      }
+    )
 
   }
 

@@ -20,6 +20,8 @@ import { AddwardenComponent } from './components/warden/addwarden/addwarden.comp
 import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.component';
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { AddallotmentComponent } from './components/allotment/addallotment/addal
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
