@@ -15,11 +15,11 @@ export class AllotmentserviceService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/${hid}`);
   }
 
-  addallotment(allotment:Allotmentdto):Observable<any>{
-    return this.http.post("http://localhost:8082/hostel/add", allotment);
+  addAllotment (allotmentDto: Allotmentdto): Observable<any> {
+    return this.http.post(Constants.baseUrl + `${this.prefix}add`, allotmentDto);
   }
 
   delete (aid: number): Observable<any> {
-    return this.http.delete("http://localhost:8082/remove/aid/"+ aid);
+    return this.http.delete("http://localhost:8082/remove/aid/" + aid);
   }
 }

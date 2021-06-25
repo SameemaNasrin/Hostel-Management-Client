@@ -15,12 +15,10 @@
 
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Hostel to Allocate </label>
-          <select class="form-select" name="txthost" [(ngModel)]="allotmentdto.hostelId" #alloHostel="ngModel" required>
-            <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }}</option>
-            
+          <select class="form-select" name="txthost" [(ngModel)]="allotmentdto.hostelId" #alloHostel="ngModel" (change)="onHostelChange($event)" required>
+            <option value="{{ h.id }}" *ngFor="let h of hostels">{{ h.name }} - {{ h.type }}</option>
           </select>
         </div>
-
         <div *ngIf="alloHostel.invalid && alloHostel.touched" class="alert alert-danger">
             <div *ngIf="alloHostel.errors.required">Hostel is required</div>
         </div>
@@ -28,8 +26,8 @@
 
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Student to Allocate </label>
-          <select class="form-select" name="txthost" [(ngModel)]="allotmentdto.StudentId" #alloStudent="ngModel" required>
-            <option value="{{ s.id }}" *ngFor="let s of student">{{ s.name }}</option>
+          <select class="form-select" name="txtstud" [(ngModel)]="allotmentdto.studentId" #alloStudent="ngModel" required>
+            <option value="{{ s.id }}" *ngFor="let s of student">{{ s.name }} - {{ s.gender | titlecase }}</option>
             
           </select>
         </div>
@@ -37,18 +35,16 @@
             <div *ngIf="alloStudent.errors.required">Student is required</div>
         </div>
 
-
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Room to Allocate </label>
-          <select class="form-select" name="txthost" [(ngModel)]="allotmentdto.RoomId" #alloRoom="ngModel" required>
-            <option value="{{ r.id }}" *ngFor="let r of room">{{ r.roomno }}</option>
+          <select class="form-select" name="txtROOM" [(ngModel)]="allotmentdto.roomId" #alloRoom="ngModel" required>
+            <option value="{{ r.roomId }}" *ngFor="let r of rooms">{{ r.roomNo }}</option>
             
           </select>
         </div>
         <div *ngIf="alloRoom.invalid && alloRoom.touched" class="alert alert-danger">
             <div *ngIf="alloRoom.errors.required">Room is required</div>
         </div>
-
         
         <div class="row">
           <input type="submit" value="Add Allotment" class="btn btn-success btn-block mt-2" [disabled]="!addAllotmentForm.valid" />

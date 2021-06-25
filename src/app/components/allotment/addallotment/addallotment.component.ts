@@ -8,6 +8,7 @@ import { Student } from 'src/app/entities/student';
 import { StudentService } from 'src/app/services/student.service';
 import { AllotmentserviceService } from 'src/app/services/allotmentservice.service';
 import { HostelService } from 'src/app/services/hostel.service';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-addallotment',
@@ -19,19 +20,18 @@ export class AddallotmentComponent implements OnInit {
   allotmentdto: Allotmentdto = new Allotmentdto();
   responseMsg: string;
   errorMsgs = []
-  room: Room [] = []
+  rooms: Room[] = []
   hostels: Hostel[] = []
   student: Student[] = []
 
   @ViewChild("addAllotmentForm")
   private form: NgForm
-  constructor(private allotmentserviceService: AllotmentserviceService, private roomService: RoomService ,private hostelservice:HostelService, private studentservice:StudentService) { }
+  constructor(private allotmentserviceService: AllotmentserviceService, private roomService: RoomService, private hostelservice: HostelService, private studentservice: StudentService) { }
 
-  ngOnInit() {
+  ngOnInit () {
     this.hostelservice.viewAll().subscribe(
       data => {
         this.hostels = data
-        console.log(this.hostels);
 
       },
       error => {
@@ -39,21 +39,10 @@ export class AddallotmentComponent implements OnInit {
 
       }
     )
-    this.roomService.getAllRooms().subscribe(
-      data => {
-        this.roomService = data
-        console.log(this.room);
 
-      },
-      error => {
-        console.log(error);
-
-      }
-    )
     this.studentservice.getStudents().subscribe(
       data => {
         this.student = data
-        console.log(this.student);
 
       },
       error => {
@@ -63,11 +52,30 @@ export class AddallotmentComponent implements OnInit {
     )
 
   }
+  onHostelChange (event): void {
+    let newVal = event.target.value;
+    this.rooms = []
+    this.roomService.getRoomsByHostelId(newVal).subscribe(
+      data => {
+        this.errorMsgs = []
+        this.rooms = data;
+        console.log(this.rooms);
+
+      },
+      error => {
+        error.error.messages.forEach(element => {
+          this.errorMsgs.push(element)
+        });
+      }
+    )
+
+  }
 
   addAllotment (): void {
+    console.log(this.allotmentdto);
     this.errorMsgs = []
     this.responseMsg = undefined
-    this.allotmentserviceService.addallotment(this.allotmentdto).subscribe(
+    this.allotmentserviceService.addAllotment(this.allotmentdto).subscribe(
       data => {
         this.form.reset()
         this.responseMsg = data.message;

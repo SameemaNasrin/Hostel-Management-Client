@@ -56,7 +56,7 @@
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Choose Floor</label>
             <select class="form-select" name="txtsearchfloor" [(ngModel)]="floor" #searchFloor="ngModel" required>
-              <option value="{{ f }}" *ngFor="let f of [1,2,3,4,5]">{{ f }}</option>
+              <option value="{{ f }}" *ngFor="let f of [0,1,2,3,4,5]">{{ f }}</option>
               
             </select>
           </div>
