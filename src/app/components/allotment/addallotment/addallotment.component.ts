@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Allotmentdto } from 'src/app/dto/allotmentdto';
 import { Hostel } from 'src/app/entities/hostel';
+import { Room } from 'src/app/entities/room';
+import { RoomService } from 'src/app/services/room.service';
 import { Student } from 'src/app/entities/student';
 import { StudentService } from 'src/app/services/student.service';
 import { AllotmentserviceService } from 'src/app/services/allotmentservice.service';
@@ -17,18 +19,30 @@ export class AddallotmentComponent implements OnInit {
   allotmentdto: Allotmentdto = new Allotmentdto();
   responseMsg: string;
   errorMsgs = []
+  room: Room [] = []
   hostels: Hostel[] = []
   student: Student[] = []
 
   @ViewChild("addAllotmentForm")
   private form: NgForm
-  constructor(private allotmentserviceService: AllotmentserviceService, private hostelservice:HostelService, private studentservice:StudentService) { }
+  constructor(private allotmentserviceService: AllotmentserviceService, private roomService: RoomService ,private hostelservice:HostelService, private studentservice:StudentService) { }
 
   ngOnInit() {
     this.hostelservice.viewAll().subscribe(
       data => {
         this.hostels = data
         console.log(this.hostels);
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
+    this.roomService.getAllRooms().subscribe(
+      data => {
+        this.roomService = data
+        console.log(this.room);
 
       },
       error => {
