@@ -45,10 +45,10 @@
               <tbody>
                 <tr *ngFor="let v of visitors">
                   <td>{{ v.id}}</td>
-                  <td>{{ v.visitorName }}</td>
+                  <td>{{ v.visitorName | titlecase}}</td>
                   <td>{{ v.contactNumber }}</td>
                   <td>{{ v.student.id }}</td>
-                  <td>{{ v.studentRelation }}</td>
+                  <td>{{ v.studentRelation | titlecase}}</td>
                   <td>{{ v.visitorAddress }}</td>
                   <td>{{ v.reason }}</td>
                   <td>{{ v.dateOfVisiting }}</td>

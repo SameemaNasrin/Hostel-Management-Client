@@ -88,6 +88,10 @@
     width: fit-content;
 }
 
+.hide{
+    display: none;
+    /* flexbox */
+}
 
 
 
