@@ -23,7 +23,7 @@ export class AddvisitorComponent implements OnInit {
   constructor(private studentService: StudentService, private hostelService: HostelService, private visitorService: VisitorService) { }
 
   ngOnInit () {
-    this.studentService.getStudents().subscribe(
+    this.studentService.getAllocatedStudents().subscribe(
       data => {
         this.students = data;
 
@@ -45,6 +45,7 @@ export class AddvisitorComponent implements OnInit {
   }
 
   addVisitor (): void {
+
     this.errorMsgs = []
     this.visitorService.addVisitor(this.visitorDto).subscribe(
       data => {

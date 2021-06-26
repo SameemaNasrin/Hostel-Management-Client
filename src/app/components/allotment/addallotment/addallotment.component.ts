@@ -39,7 +39,7 @@ export class AddallotmentComponent implements OnInit {
       }
     )
 
-    this.studentservice.getStudents().subscribe(
+    this.studentservice.getUnallocatedStudents().subscribe(
       data => {
         this.student = data
 
