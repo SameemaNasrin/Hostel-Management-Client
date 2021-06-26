@@ -6,6 +6,5 @@ export class Visitordto {
     visitorAddress: string;
     reason: string;
     dateOfVisiting: string;
-    hostelId: number;
 }
 

@@ -31,4 +31,12 @@ export class StudentService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/mobile/${mobile}`);
   }
 
+  getUnallocatedStudents (): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/unallotted`);
+  }
+
+  getAllocatedStudents (): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}get/allotted`);
+  }
+
 }
