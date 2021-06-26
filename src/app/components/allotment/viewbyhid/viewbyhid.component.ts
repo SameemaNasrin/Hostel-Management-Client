@@ -12,7 +12,7 @@ export class ViewbyhidComponent implements OnInit {
   allotment:Allotment[]
   errorMsgs = []
   id: number;
-  //hid:number;
+  hid:number;
   constructor(public allotmentservice:AllotmentserviceService) { }
   
 
@@ -21,11 +21,11 @@ export class ViewbyhidComponent implements OnInit {
  
   viewallotmentbyhid() {
     console.log(this.id);
-    if (this.id == undefined || this.id == null || this.id <= 0) {
+    if (this.hid == undefined || this.hid == null || this.hid <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
-    this.allotmentservice.viewallotmentbyhid(this.id).subscribe(
+    this.allotmentservice.viewallotmentbyhid(this.hid).subscribe(
       data => {
         console.log(data);
         this.allotment = [];

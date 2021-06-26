@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light">
   <div>
     <input class="search form-control m-2" type="search" placeholder="Search Alloment" aria-label="Search"  [(ngModel)] = "hid">
-    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByHId()">Search by Hostel Id</button>
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewallotmentbyhid()">Search by Hostel Id</button>
   </div>
 <a  routerLink='/allotment/add' class="btn btn-outline-success m-2 addallotment" type="button">Add Alloment</a>
 </nav>
@@ -30,7 +30,7 @@
             <tr *ngFor="let a of allotment">
               <td>{{ a.id}}</td>
               <td>{{ a.student.id }}</td>
-              <td>{{ a.room.id }}</td>
+              <td>{{ a.room.roomId }}</td>
               <td>{{ a.hostel.id}}</td>
               <td>{{ a.hostel.name}}</td>
             </tr>
