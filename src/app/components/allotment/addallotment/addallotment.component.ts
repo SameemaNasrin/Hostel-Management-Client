@@ -8,7 +8,6 @@ import { Student } from 'src/app/entities/student';
 import { StudentService } from 'src/app/services/student.service';
 import { AllotmentserviceService } from 'src/app/services/allotmentservice.service';
 import { HostelService } from 'src/app/services/hostel.service';
-// import { debug } from 'console';
 
 @Component({
   selector: 'app-addallotment',
@@ -58,8 +57,8 @@ export class AddallotmentComponent implements OnInit {
     this.roomService.getRoomsByHostelId(newVal).subscribe(
       data => {
         this.errorMsgs = []
+        data = data.filter(r => r.maximumSize > 0)
         this.rooms = data;
-        console.log(this.rooms);
 
       },
       error => {
