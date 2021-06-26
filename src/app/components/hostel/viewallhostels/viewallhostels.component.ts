@@ -13,8 +13,8 @@ export class ViewallhostelsComponent implements OnInit {
   errorMsgs = []
   // hid: number;
 
-  value:any;
-  searchOption:string;
+  value:any = undefined;
+  searchOption:string = "viewAll";
 
   constructor(public hostelService: HostelService) { }
 
@@ -36,6 +36,7 @@ export class ViewallhostelsComponent implements OnInit {
   }
 
   viewAll(){
+    // console.log(this.value)
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
@@ -68,6 +69,7 @@ export class ViewallhostelsComponent implements OnInit {
         this.errorMsgs = error.error.messages;
       }
     )
+    this.value = undefined;
   }
 
   viewByName(){
@@ -83,6 +85,7 @@ export class ViewallhostelsComponent implements OnInit {
 
       }
     )
+    this.value = undefined;
   }
   
   viewOption(){
@@ -96,6 +99,7 @@ export class ViewallhostelsComponent implements OnInit {
     }
 
     else if(this.searchOption == "viewAll"){
+      // this.value = 'all'
       this.viewAll();
     }
   }

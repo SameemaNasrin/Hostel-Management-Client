@@ -3,19 +3,15 @@
       <select class="form-select  view-option" [(ngModel)] = "searchOption">
         
         <option value="viewAll" selected>View All</option>
-        <option value="byId" selected>By ID</option>
+        <option value="byId">By ID</option>
         <option value="byName">By Name</option>
       </select>
 
       <div class="search-bar">
-        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"> <!--[(ngModel)]= " (searchOption == 'byDate') ? date : (searchOption == 'byDateHostelId') ? hid : sid"-->
-        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()">Search</button>
+        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"  #searchhostel = "ngModel" [disabled] = "searchOption == 'viewAll'">
+        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchhostel.value == undefined && (searchOption == 'byId' || searchOption == 'byName')">Search</button>
       </div>
-
-      <!-- <div>
-        <input class="search form-control m-2" type="number" placeholder="Search By Hostel ID" aria-label="Search"  [(ngModel)] = "hid">
-        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewById()">Search</button>
-      </div> -->
+      
       <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
     </nav>
 

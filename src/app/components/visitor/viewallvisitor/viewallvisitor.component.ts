@@ -15,9 +15,9 @@ export class ViewallvisitorComponent implements OnInit {
   // sid: number;
   // hid:number;
   date: string;
-  value: any;
+  value: any = undefined;
   visitors: Visitor[]
-  searchOption: string;
+  searchOption: string = "viewAll";
   constructor(public visitorService: VisitorService) {
     this.searchOption == "byStudentId"
   }
@@ -92,6 +92,7 @@ export class ViewallvisitorComponent implements OnInit {
         this.errorMsgs = error.error.messages;
       }
     )
+    this.value = undefined;
   }
 
   viewByDate () {
@@ -113,6 +114,7 @@ export class ViewallvisitorComponent implements OnInit {
 
       }
     )
+    this.value = undefined
   }
 
   viewByDateHostelId () {
@@ -129,6 +131,8 @@ export class ViewallvisitorComponent implements OnInit {
         this.errorMsgs = error.error.messages;
       }
     )
+
+    this.value = undefined; 
   }
 
   /*

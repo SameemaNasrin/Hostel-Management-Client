@@ -11,8 +11,8 @@
       <div class="search-bar">
         
         <input class="search form-control m-2" type="date" placeholder="Search..." aria-label="Search"  [(ngModel)] = "date" [style.display] = "searchOption == 'byDateHostelId' ? 'inline' : 'none' ">
-        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"> <!--[(ngModel)]= " (searchOption == 'byDate') ? date : (searchOption == 'byDateHostelId') ? hid : sid"-->
-        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()">Search</button>
+        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value" #searchvisitor = "ngModel" [disabled] = "searchOption == 'viewAll'">
+        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchvisitor.value == undefined && (searchOption == 'byStudentId' || searchOption == 'byDate' || searchOption == 'byDateHostelId')">Search</button>
       </div>
 
       <a  routerLink='/visitor/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Visitor</a>
