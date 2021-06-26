@@ -21,7 +21,7 @@
         -->
       <div class="mb-3">
         <label for="noOfRooms" class="form-label">No of Rooms</label>
-        <input type="number" class="form-control" name="txtnum" [(ngModel)]="noOfRooms" #roomno="ngModel" id="noOfRooms" aria-describedby="emailHelp" value="1" min="1" required>
+        <input type="number" class="form-control" name="txtnum" [(ngModel)]="noOfRooms" #roomno="ngModel" id="noOfRooms" aria-describedby="emailHelp" required>
       </div>
       <div *ngIf="roomno.invalid && roomno.touched" class="alert alert-danger">
         <div>No of Room is required</div> <!-- *ngIf="roomno.value < 1"-->

@@ -39,31 +39,33 @@ export class AddroomComponent implements OnInit {
 
   }
 
-  numToAlpha(num:number){
-    var s = '', t:number;
-  
+  numToAlpha (num: number) {
+    var s = '', t: number;
+
     while (num > 0) {
       t = (num - 1) % 26;
       s = String.fromCharCode(65 + t) + s;
-      num = (num - t)/26 | 0;
+      num = (num - t) / 26 | 0;
     }
     return s || undefined;
   }
-  
+
 
   addRoom (): void {
-    if(this.noOfRooms > 1){
-     
-      this.errorMsgs = []
-      this.responseMsg = []
+    this.errorMsgs = []
+    this.responseMsg = []
+    if (this.noOfRooms < 1) {
+      this.errorMsgs.push("No of rooms should be at least 1")
+      return
+    }
+    else {
+      for (this.room = 0; this.room < this.noOfRooms; this.room++) {
+        let random = Math.floor(Math.random() * 100);
 
-      for(this.room = 0; this.room< this.noOfRooms; this.room++){
-        let random = Math.floor(Math.random()*100);
-       
-        this.roomDto.roomNo = this.roomDto.floor + '' + this.numToAlpha(this.room+1) + random;
+        this.roomDto.roomNo = this.roomDto.floor + '' + this.numToAlpha(this.room + 1) + random;
         this.roomService.addRoom(this.roomDto).subscribe(
           data => {
-            this.form.reset();       
+            this.form.reset();
             this.responseMsg.push(data.message)
           },
           error => {
@@ -75,7 +77,7 @@ export class AddroomComponent implements OnInit {
 
       }
     }
-   
+
   }
 
 }
