@@ -1,25 +1,44 @@
-<div class="col-5 mx-auto p-2 m-2">
-  <input type="number" placeholder="Enter Hostel ID" [(ngModel)]="hid" class="form-control"/>
-  <input type="button" value="Search" (click)="viewallotmentbyhid()" class="btn btn-info"/>
+<nav class="navbar navbar-light bg-light">
+  <div>
+    <input class="search form-control m-2" type="search" placeholder="Search Alloment" aria-label="Search"  [(ngModel)] = "hid">
+    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewByHId()">Search by Hostel Id</button>
+  </div>
+<a  routerLink='/allotment/add' class="btn btn-outline-success m-2 addallotment" type="button">Add Alloment</a>
+</nav>
+
+<div class="row">
+  <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+    <p class="text-center">{{ e }}</p>
+  </div>
 </div>
-<section>
-  <div *ngIf="msg!=undefined" class="alert alert-danger">{{msg}}</div>
-  <table class="table table-primary table-striped table-hover" *ngIf="employees!=undefined">
-    <tr>
-      <td>Alloment ID</td>
-      <td>{{allotment.allotmentId}}</td>
-    </tr>
-    <tr>
-      <td>Student ID</td>
-      <td>{{allotment.studentId}}</td>
-    </tr>
-    <tr>
-      <td>Room ID</td>
-      <td>{{allotment.roomId}}</td>
-    </tr>
-    <tr>
-      <td>Hostel ID</td>
-      <td>{{allotment.hostelId}}</td>
-    </tr>
-  </table>
-</section>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" style="background-color: #cfe2ff;">
+          <thead>
+            <tr>
+              <th scope="col">Alloment Id</th>
+              <th scope="col">Student Id</th>
+              <th scope="col">Room Id</th>
+              <th scope="col">Hostel Id</th>
+              <th scope="col">Hostel Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of allotment">
+              <td>{{ a.id}}</td>
+              <td>{{ a.student.id }}</td>
+              <td>{{ a.room.id }}</td>
+              <td>{{ a.hostel.id}}</td>
+              <td>{{ a.hostel.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
