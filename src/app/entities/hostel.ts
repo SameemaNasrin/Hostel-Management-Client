@@ -7,4 +7,5 @@ export class Hostel {
     fee:number;
    // rooms:Rooms[];
     totalFloors:number;
+    imgUrl:string;
 }

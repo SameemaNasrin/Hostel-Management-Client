@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { HostelDto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
 
@@ -11,10 +11,10 @@ export class ViewallhostelsComponent implements OnInit {
 
   hostels: HostelDto[];
   errorMsgs = []
-  // hid: number;
 
   value:any = undefined;
   searchOption:string = "viewAll";
+
 
   constructor(public hostelService: HostelService) { }
 
@@ -40,7 +40,7 @@ export class ViewallhostelsComponent implements OnInit {
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
-        this.hostels = data
+        this.hostels = data;
 
       },
 
@@ -115,4 +115,6 @@ export class ViewallhostelsComponent implements OnInit {
       return "text";
     }
   }
+
+  
 }

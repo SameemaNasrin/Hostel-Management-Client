@@ -1,3 +1,4 @@
+import { Hostel } from "./hostel";
 import { Student } from "./student";
 
 export class Visitor {
@@ -9,4 +10,5 @@ export class Visitor {
     visitorAddress: string;
     dateOfVisiting: string;
     reason: string;
+    hostel: Hostel;
 }
