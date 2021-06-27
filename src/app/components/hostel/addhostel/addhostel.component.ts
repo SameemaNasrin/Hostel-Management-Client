@@ -13,6 +13,9 @@ export class AddhostelComponent implements OnInit {
   hostel:Hostel = new Hostel();
   msg:string = undefined;
   errorMsgs = [];
+
+  img:string;
+
   @ViewChild("addHostel")
   private form: NgForm;
 
@@ -23,6 +26,9 @@ export class AddhostelComponent implements OnInit {
 
   
   add(): void {
+    this.hostel.imgUrl = this.img.split("\\")[2];
+    this.hostel.imgUrl = "..\\assets\\" + this.hostel.imgUrl;
+    console.log(this.hostel.imgUrl);
 
     this.hostelService.addHostel(this.hostel).subscribe(
       data => {

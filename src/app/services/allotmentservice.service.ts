@@ -19,7 +19,7 @@ export class AllotmentserviceService {
     return this.http.post(Constants.baseUrl + `${this.prefix}add`, allotmentDto);
   }
 
-  delete (aid: number): Observable<any> {
+  deleteallotment (aid: number): Observable<any> {
     return this.http.delete("http://localhost:8082/remove/aid/" + aid);
   }
 }

@@ -6,4 +6,5 @@ export class HostelDto {
     address:string;
     fee:number;
     totalFloors:number;
+    imgUrl:string;
 }

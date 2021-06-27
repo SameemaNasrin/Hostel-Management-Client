@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteallotmentComponent } from './deleteallotment.component';
+import { ViewallfeesComponent } from './viewallfees.component';
 
-describe('DeleteallotmentComponent', () => {
-  let component: DeleteallotmentComponent;
-  let fixture: ComponentFixture<DeleteallotmentComponent>;
+describe('ViewallfeesComponent', () => {
+  let component: ViewallfeesComponent;
+  let fixture: ComponentFixture<ViewallfeesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteallotmentComponent ]
+      declarations: [ ViewallfeesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteallotmentComponent);
+    fixture = TestBed.createComponent(ViewallfeesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
