@@ -17,6 +17,7 @@ export class ViewbyhidComponent implements OnInit {
   
 
   ngOnInit() {
+    
   }
  
   viewallotmentbyhid() {
@@ -25,6 +26,7 @@ export class ViewbyhidComponent implements OnInit {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
       return;
     }
+
     this.allotmentservice.viewallotmentbyhid(this.hid).subscribe(
       data => {
         console.log(data);
@@ -32,7 +34,7 @@ export class ViewbyhidComponent implements OnInit {
         data.forEach(e => {
           this.allotment.push(e);
         });
-          //this.wardens.push(data);
+         
         console.log(this.allotment);
         this.errorMsgs = undefined;
       },
@@ -43,6 +45,21 @@ export class ViewbyhidComponent implements OnInit {
 
       }
     )
+  }
+  deleteallotment(){
+    console.log(this.id)
+    if (this.id == undefined || this.id == null || this.id <= 0) {
+      this.errorMsgs[0] = "Enter Correct Allotment Id"
+      return;
+    }
+    this.allotmentservice.deleteallotment(this.id).subscribe(
+      error => {
+        error.error.messages.forEach(e => {
+          this.errorMsgs.push(e)
+        });
+      }
+    )
+
   }
 
 }
