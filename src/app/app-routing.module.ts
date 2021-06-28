@@ -15,6 +15,7 @@ import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
+import { ViewComponent } from './components/feestructure/view/view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +57,12 @@ const routes: Routes = [
     path: 'allotment', children: [
       { path: 'view', component: ViewbyhidComponent },
       { path: 'add' , component: AddallotmentComponent},
+    ]
+  },
+  {
+    path: 'feestructure', children: [
+      { path: 'view', component: ViewComponent },
+      { path: 'pay' , component: ViewComponent},
     ]
   }
 

@@ -1,0 +1,56 @@
+
+  <!-- <div class="row page"> -->
+    
+    <nav class="navbar navbar-light bg-light">
+      <select class="form-select  view-option"  [(ngModel)] = "searchOption">        
+        <option value="viewUnpaid" selected>View Unpaid</option>
+        <option value="byStudentId">By Student ID</option>
+      </select>
+
+      <div class="search-bar">
+        
+        <input class="search form-control m-2 val" type="number" placeholder="Search By Student ID..." aria-label="Search" [(ngModel)] = "studentID" #viewByStudentID = "ngModel" [disabled] = "searchOption == 'viewUnpaid'">
+        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="viewByStudentID.value == undefined && searchOption == 'byStudentId'">Search</button>
+      </div>
+
+      <a  routerLink='/feeStructure/pay' class="btn btn-outline-success m-2 addhostel" type="button">Pay Fee</a>
+    </nav>
+
+    <div class="row justify-content-center">
+      <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+        <p class="text-center">{{ e }}</p>
+    </div>
+    </div>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table" style="background-color: #cfe2ff;">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Total Fees</th>
+                <th scope="col">Allotment ID</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Payment Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fs of feeStructure">
+                <td>{{ fs.id}}</td>
+                <td>{{ fs.allotment.student.id }}</td>
+                <td>{{ fs.totalFees }}</td>
+                <td>{{ fs.allotment.id }}</td>
+                <td>{{ fs.paymentStatus }}</td>
+                <td>{{ fs.paymentDate }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+<!-- </div> -->
