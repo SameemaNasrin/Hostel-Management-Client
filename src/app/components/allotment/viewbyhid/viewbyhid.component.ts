@@ -9,20 +9,20 @@ import { AllotmentserviceService } from 'src/app/services/allotmentservice.servi
 })
 export class ViewbyhidComponent implements OnInit {
 
-  allotment:Allotment[];
+  allotment: Allotment[];
   errorMsgs = [];
-  successMsg:string = undefined;
+  successMsg: string = undefined;
   // @Input()
   id: number;
-  hid:number;
-  constructor(public allotmentservice:AllotmentserviceService) { }
-  
+  hid: number;
+  constructor(public allotmentservice: AllotmentserviceService) { }
 
-  ngOnInit() {
-    
+
+  ngOnInit () {
+
   }
- 
-  viewallotmentbyhid() {
+
+  viewallotmentbyhid () {
     console.log(this.id);
     if (this.hid == undefined || this.hid == null || this.hid <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
@@ -36,7 +36,7 @@ export class ViewbyhidComponent implements OnInit {
         data.forEach(e => {
           this.allotment.push(e);
         });
-         
+
         console.log(this.allotment);
         this.errorMsgs = undefined;
       },
@@ -48,15 +48,19 @@ export class ViewbyhidComponent implements OnInit {
       }
     )
   }
-  deallocateStudent(aid:number){
+  deallocateStudent (aid: number) {
     this.allotmentservice.deallocate(aid).subscribe(
-      data =>{
+      data => {
+        this.successMsg = data.message;
 
-        console.log(data);
-        // this.successMsg = 
+      },
+      error => {
+        error.error.messages.forEach(element => {
+          this.errorMsgs.push(element)
+        });
+
       }
-    );
-    console.log(aid);
+    )
 
 
   }
