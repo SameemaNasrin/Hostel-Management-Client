@@ -13,7 +13,7 @@
       <form #loginForm="ngForm" (ngSubmit)="doLogin()">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" name="txtemail" [(ngModel)]='email' #loginEmail="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]+$">
+          <input type="email" class="form-control" name="txtemail" [(ngModel)]='loginDto.email' #loginEmail="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]+$">
         </div>
         <div *ngIf="loginEmail.invalid && loginEmail.touched" class="alert alert-danger">
             <div *ngIf="loginEmail.errors.required">Email is required</div>
@@ -22,11 +22,24 @@
         
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" name="txtpass" [(ngModel)]='password' #loginPass="ngModel" id="exampleInputPassword1" required>
+          <input type="password" class="form-control" name="txtpass" [(ngModel)]='loginDto.password' #loginPass="ngModel" id="exampleInputPassword1" required>
         </div>
         <div *ngIf="loginPass.invalid && loginPass.touched" class="alert alert-danger">
             <div *ngIf="loginPass.errors.required">Password is required</div>
         </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Login As</label>
+          <select class="form-select" name="txtrole" [(ngModel)]="loginDto.role" #loginRole="ngModel" required>
+            <option value="student">Student</option>
+            <option value="warden">Warden</option>
+            <option value="admin">Admin</option>
+            
+          </select>
+        </div>
+        <div *ngIf="loginRole.invalid && loginRole.touched" class="alert alert-danger">
+            <div *ngIf="loginRole.errors.required">Role is required</div>
+        </div>
+
         <div class="row">
           <input type="submit" value="Login" class="btn btn-primary btn-block mt-2" [disabled]="!loginForm.valid" />
         </div>

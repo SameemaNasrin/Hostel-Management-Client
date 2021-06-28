@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { HostelDto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-viewallhostels',
@@ -12,13 +13,13 @@ export class ViewallhostelsComponent implements OnInit {
   hostels: HostelDto[];
   errorMsgs = []
 
-  value:any = undefined;
-  searchOption:string = "viewAll";
+  value: any = undefined;
+  searchOption: string = "viewAll";
 
 
-  constructor(public hostelService: HostelService) { }
-
+  constructor(public hostelService: HostelService, private storageService: StorageService) { }
   ngOnInit () {
+
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
@@ -35,7 +36,7 @@ export class ViewallhostelsComponent implements OnInit {
     )
   }
 
-  viewAll(){
+  viewAll () {
     // console.log(this.value)
     this.hostelService.viewAll().subscribe(
       data => {
@@ -72,7 +73,7 @@ export class ViewallhostelsComponent implements OnInit {
     this.value = undefined;
   }
 
-  viewByName(){
+  viewByName () {
     this.errorMsgs = [];
     this.hostelService.viewByName(this.value).subscribe(
       data => {
@@ -87,34 +88,34 @@ export class ViewallhostelsComponent implements OnInit {
     )
     this.value = undefined;
   }
-  
-  viewOption(){
+
+  viewOption () {
     console.log(this.searchOption);
-    if(this.searchOption == "byId"){
+    if (this.searchOption == "byId") {
       this.viewById();
     }
 
-    else if(this.searchOption == "byName"){
+    else if (this.searchOption == "byName") {
       this.viewByName();
     }
 
-    else if(this.searchOption == "viewAll"){
+    else if (this.searchOption == "viewAll") {
       // this.value = 'all'
       this.viewAll();
     }
   }
 
- 
 
-  inputSearchType():string{
-    if(this.searchOption == "byId"){
+
+  inputSearchType (): string {
+    if (this.searchOption == "byId") {
       return "number";
     }
 
-    else if(this.searchOption == "byName"){
+    else if (this.searchOption == "byName") {
       return "text";
     }
   }
 
-  
+
 }

@@ -15,14 +15,16 @@ import { AddvisitorComponent } from './components/visitor/addvisitor/addvisitor.
 import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/viewallvisitor.component';
 import { ViewbyhidComponent } from './components/allotment/viewbyhid/viewbyhid.component';
 import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
+import { AdminGuard } from './guards/admin.guard';
+import { GuestGuard } from './guards/guest.guard';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  // { path: 'hostels', component: HostelsComponent },
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   {
     path: 'hostel', children: [
-      { path: "add", component: AddhostelComponent },
+      { path: "add", component: AddhostelComponent, canActivate: [AdminGuard] },
       { path: "view", component: ViewallhostelsComponent }
     ]
   },
@@ -49,13 +51,13 @@ const routes: Routes = [
   {
     path: 'warden', children: [
       { path: 'view', component: ViewallwardensComponent },
-      { path: 'add' , component: AddwardenComponent},
+      { path: 'add', component: AddwardenComponent, canActivate: [AdminGuard] },
     ]
   },
   {
     path: 'allotment', children: [
       { path: 'view', component: ViewbyhidComponent },
-      { path: 'add' , component: AddallotmentComponent},
+      { path: 'add', component: AddallotmentComponent },
     ]
   }
 

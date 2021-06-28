@@ -1,4 +1,5 @@
 <div class="row page">
+  
     <nav class="navbar navbar-light bg-light">
       <select class="form-select  view-option" [(ngModel)] = "searchOption">
         
@@ -12,7 +13,7 @@
         <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchhostel.value == undefined && (searchOption == 'byId' || searchOption == 'byName')">Search</button>
       </div>
       
-      <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
+      <!-- <a routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a> -->
     </nav>
 
   <div class="row">
@@ -27,7 +28,6 @@
       <img class="card-img-top" src= {{h.imgUrl}} alt="Hostel image">
       <!-- <div class="overlay">ID: {{h.id}} Name: {{h.name | titlecase}}</div> -->
     </div>
-
     <div class="card-body">
       <table class="table" ng-hide="myVar">
         <tr>
