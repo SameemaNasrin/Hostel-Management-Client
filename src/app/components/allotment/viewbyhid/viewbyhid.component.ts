@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Allotment } from 'src/app/entities/allotment';
 import { AllotmentserviceService } from 'src/app/services/allotmentservice.service';
 
@@ -9,8 +9,10 @@ import { AllotmentserviceService } from 'src/app/services/allotmentservice.servi
 })
 export class ViewbyhidComponent implements OnInit {
 
-  allotment:Allotment[]
-  errorMsgs = []
+  allotment:Allotment[];
+  errorMsgs = [];
+  successMsg:string = undefined;
+  // @Input()
   id: number;
   hid:number;
   constructor(public allotmentservice:AllotmentserviceService) { }
@@ -46,19 +48,16 @@ export class ViewbyhidComponent implements OnInit {
       }
     )
   }
-  deleteallotment(){
-    console.log(this.id)
-    if (this.id == undefined || this.id == null || this.id <= 0) {
-      this.errorMsgs[0] = "Enter Correct Allotment Id"
-      return;
-    }
-    this.allotmentservice.deleteallotment(this.id).subscribe(
-      error => {
-        error.error.messages.forEach(e => {
-          this.errorMsgs.push(e)
-        });
+  deallocateStudent(aid:number){
+    this.allotmentservice.deallocate(aid).subscribe(
+      data =>{
+
+        console.log(data);
+        // this.successMsg = 
       }
-    )
+    );
+    console.log(aid);
+
 
   }
 
