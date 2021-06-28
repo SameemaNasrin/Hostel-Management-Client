@@ -18,6 +18,7 @@ import { AddallotmentComponent } from './components/allotment/addallotment/addal
 import { AdminGuard } from './guards/admin.guard';
 import { GuestGuard } from './guards/guest.guard';
 
+import { ViewComponent } from './components/feestructure/view/view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -58,6 +59,12 @@ const routes: Routes = [
     path: 'allotment', children: [
       { path: 'view', component: ViewbyhidComponent },
       { path: 'add', component: AddallotmentComponent },
+    ]
+  },
+  {
+    path: 'feestructure', children: [
+      { path: 'view', component: ViewComponent },
+      { path: 'pay', component: ViewComponent },
     ]
   }
 

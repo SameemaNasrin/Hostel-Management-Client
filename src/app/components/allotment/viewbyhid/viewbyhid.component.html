@@ -3,10 +3,10 @@
     <input class="search form-control m-2" type="search" placeholder="Search Alloment" aria-label="Search"  [(ngModel)] = "hid">
     <button class="btn btn-outline-success m-2" type="submit" (click) = "viewallotmentbyhid()">Search by Hostel Id</button>
   </div>
-  <div>
+  <!-- <div>
     <input class="search form-control m-2" type="search" placeholder="Delete Alloment" aria-label="Delete"  [(ngModel)] = "id">
     <button class="btn btn-outline-success m-2" type="submit" (click) = "deleteallotment()">Delete by Alloment Id</button>
-  </div>
+  </div> -->
 <a  routerLink='/allotment/add' class="btn btn-outline-success m-2 addallotment" type="button">Add Alloment</a>
 </nav>
 
@@ -20,7 +20,8 @@
   <div class="row mt-5">
     <div class="col-md-12">
       <div class="table-responsive">
-        <table class="table" style="background-color: #cfe2ff;">
+        <!-- <form> -->
+        <table class="table text-center" style="background-color: #cfe2ff;">
           <thead>
             <tr>
               <th scope="col">Alloment Id</th>
@@ -28,21 +29,23 @@
               <th scope="col">Room Id</th>
               <th scope="col">Hostel Id</th>
               <th scope="col">Hostel Name</th>
+              <th>Deallocate</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let a of allotment">
-              <td>{{ a.id}}</td>
+              <td>{{ a.id }}</td> <!-- [(ngModel)] = "id"-->
               <td>{{ a.student.id }}</td>
               <td>{{ a.room.roomId }}</td>
               <td>{{ a.hostel.id}}</td>
               <td>{{ a.hostel.name}}</td>
               <td>
-                <button class="delete" (click)="deleteallotment(a.id)">remove</button>   
+                <button class="btn btn-danger" (click)="deallocateStudent(a.id)">Deallocate</button>   
               </td>
             </tr>
           </tbody>
         </table>
+        <!-- </form> -->
       </div>
       
     </div>

@@ -22,7 +22,7 @@ import { ViewallvisitorComponent } from './components/visitor/viewallvisitor/vie
 import { AddallotmentComponent } from './components/allotment/addallotment/addallotment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { ViewallfeesComponent } from './components/fees/viewallfees/viewallfees.component';
+import { ViewComponent } from './components/feestructure/view/view.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { ViewallfeesComponent } from './components/fees/viewallfees/viewallfees.
     AddwardenComponent,
     AddvisitorComponent,
     ViewallvisitorComponent,
-    ViewallfeesComponent,
+    ViewComponent,
   ],
   imports: [
     BrowserModule,
