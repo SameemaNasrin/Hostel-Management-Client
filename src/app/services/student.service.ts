@@ -39,4 +39,8 @@ export class StudentService {
     return this.http.get(Constants.baseUrl + `${this.prefix}get/allotted`);
   }
 
+  getAllotmentDeatails (studentId: number): Observable<any> {
+    return this.http.get(Constants.baseUrl + `${this.prefix}/get/allotment-details/${studentId}`);
+  }
+
 }

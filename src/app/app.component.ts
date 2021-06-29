@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Userinfo } from './dto/userinfo';
 import { LoginService } from './services/login.service';
 import { StorageService } from './services/storage.service';
 
@@ -10,7 +11,8 @@ import { StorageService } from './services/storage.service';
 })
 export class AppComponent {
   title = 'hostel-management';
-  userInfo: JSON;
+  errorMsgs = []
+  userInfo: Userinfo;
   constructor(private storageService: StorageService, private loginService: LoginService, private router: Router) {
 
   }
