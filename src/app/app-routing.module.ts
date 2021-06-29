@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AddhostelComponent } from './components/hostel/addhostel/addhostel.component';
 import { ViewallhostelsComponent } from './components/hostel/viewallhostels/viewallhostels.component';
-// import { HostelsComponent } from './components/hostels/hostels.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewallstudentComponent } from './components/student/viewallstudent/viewallstudent.component';
 import { ViewallwardensComponent } from './components/warden/viewallwardens/viewallwardens.component';

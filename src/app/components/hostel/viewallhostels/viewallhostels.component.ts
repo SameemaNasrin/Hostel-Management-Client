@@ -15,29 +15,19 @@ export class ViewallhostelsComponent implements OnInit {
 
   value: any = undefined;
   searchOption: string = "viewAll";
+  item: string;
 
 
-  constructor(public hostelService: HostelService, private storageService: StorageService) { }
+  constructor(public hostelService: HostelService) { }
   ngOnInit () {
 
-    this.hostelService.viewAll().subscribe(
-      data => {
-        this.errorMsgs = undefined;
-        this.hostels = data
-
-      },
-
-      error => {
-        this.hostels = [];
-        this.errorMsgs = error.error.messages;
-        this.hostels = undefined;
-
-      }
-    )
+    this.item = JSON.parse(localStorage.getItem("userinfo"));
+    this.viewAll();
   }
 
   viewAll () {
-    // console.log(this.value)
+   
+    // console.log(this.item);
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
@@ -53,6 +43,7 @@ export class ViewallhostelsComponent implements OnInit {
   }
 
   viewById () {
+
     console.log(this.value);
     if (this.value == undefined || this.value == null || this.value <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
