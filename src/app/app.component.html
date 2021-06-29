@@ -53,12 +53,12 @@
           </li>
 
           
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'admin'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
               Manage Warden
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/warden/add" *ngIf="userInfo && userInfo.role == 'admin'">Add New Warden</a></li>
+              <li><a class="dropdown-item" routerLink="/warden/add">Add New Warden</a></li>
               <li><a class="dropdown-item" routerLink="/warden/view">View all Wardens</a></li>
             </ul>
           </li>
