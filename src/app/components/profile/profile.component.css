@@ -1,0 +1,12 @@
+*{
+    color: rgb(47, 44, 44);
+}
+
+table, h3{
+    width: 30vw;
+    margin: auto;
+}
+
+.container{
+    margin-top: 3vh;
+}

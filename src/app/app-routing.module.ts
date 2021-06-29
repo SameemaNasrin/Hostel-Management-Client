@@ -19,9 +19,11 @@ import { GuestGuard } from './guards/guest.guard';
 
 import { ViewComponent } from './components/feestructure/view/view.component';
 import { WardenGuard } from './guards/warden.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   {
     path: 'hostel', children: [
@@ -66,7 +68,7 @@ const routes: Routes = [
       { path: 'view', component: ViewComponent },
       { path: 'pay', component: ViewComponent },
     ]
-  }
+  },
 
 ];
 
