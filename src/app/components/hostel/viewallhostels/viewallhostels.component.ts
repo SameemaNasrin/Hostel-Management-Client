@@ -15,25 +15,30 @@ export class ViewallhostelsComponent implements OnInit {
 
   value: any = undefined;
   searchOption: string = "viewAll";
-  item: string = "";
+  userinfo: JSON;
 
 
   constructor(public hostelService: HostelService, public storageService: StorageService) { }
   ngOnInit () {
-    if(localStorage.length != 0)  {
-      this.item = JSON.parse(localStorage.getItem("userinfo")).role;
+    // if(localStorage.length != 0)  {
+    //   this.item = JSON.parse(localStorage.getItem("userinfo")).role;
+    // }
+    if (this.storageService.getUserInfo() != "") {
+      this.userinfo = JSON.parse(this.storageService.getUserInfo())
     }
-    
-  
+
+
+
     this.viewAll();
   }
 
   viewAll () {
-   
+
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
         this.hostels = data;
+        console.log(this.hostels);
 
       },
 

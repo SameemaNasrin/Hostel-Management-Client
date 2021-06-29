@@ -12,9 +12,7 @@
       <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"  #searchhostel = "ngModel" [disabled] = "searchOption == 'viewAll'">
       <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchhostel.value == undefined && (searchOption == 'byId' || searchOption == 'byName')">Search</button>
     </div>
-    <div *ngIf="item == 'admin'">
-      <a routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
-    </div>
+      <a routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button" *ngIf="userinfo && userinfo.role == 'admin'">Add New Hostel</a>
   </nav>
 
 <div class="row">

@@ -19,6 +19,8 @@ import { GuestGuard } from './guards/guest.guard';
 
 import { ViewComponent } from './components/feestructure/view/view.component';
 import { WardenGuard } from './guards/warden.guard';
+import { StudentGuard } from './guards/student.guard';
+import { PayComponent } from './components/feestructure/pay/pay.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,9 +64,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'feestructure', canActivate: [WardenGuard], children: [
-      { path: 'view', component: ViewComponent },
-      { path: 'pay', component: ViewComponent },
+    path: 'feestructure', children: [
+      { path: 'view', component: ViewComponent, canActivate: [WardenGuard] },
+      { path: 'pay', component: PayComponent, canActivate: [StudentGuard] },
     ]
   }
 

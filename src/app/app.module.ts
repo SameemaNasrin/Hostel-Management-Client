@@ -23,6 +23,7 @@ import { AddallotmentComponent } from './components/allotment/addallotment/addal
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ViewComponent } from './components/feestructure/view/view.component';
+import { PayComponent } from './components/feestructure/pay/pay.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ViewComponent } from './components/feestructure/view/view.component';
     AddvisitorComponent,
     ViewallvisitorComponent,
     ViewComponent,
+    PayComponent,
   ],
   imports: [
     BrowserModule,
