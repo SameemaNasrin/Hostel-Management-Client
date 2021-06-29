@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ViewComponent } from './components/feestructure/view/view.component';
 import { PayComponent } from './components/feestructure/pay/pay.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { PayComponent } from './components/feestructure/pay/pay.component';
     ViewallvisitorComponent,
     ViewComponent,
     PayComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
