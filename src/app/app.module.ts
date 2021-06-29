@@ -25,7 +25,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ViewComponent } from './components/feestructure/view/view.component';
 import { PayComponent } from './components/feestructure/pay/pay.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     ViewComponent,
     PayComponent,
     ProfileComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,15 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyDJH2u8aV6PcDLnVzDOo_BCGoheN6kWID4",
+      authDomain: "hostel-management-270f0.firebaseapp.com",
+      projectId: "hostel-management-270f0",
+      storageBucket: "hostel-management-270f0.appspot.com",
+      messagingSenderId: "744427387569",
+      appId: "1:744427387569:web:5211dcdf22d5280931c090"
+    }),
+    AngularFireStorageModule,
     ModalModule.forRoot()
   ],
   providers: [],

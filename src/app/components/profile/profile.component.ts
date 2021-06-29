@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Userinfo } from 'src/app/dto/userinfo';
 import { Student } from 'src/app/entities/student';
 import { Warden } from 'src/app/entities/warden';
 import { LoginService } from 'src/app/services/login.service';
@@ -15,36 +16,37 @@ import { WardenService } from 'src/app/services/warden.service';
 export class ProfileComponent implements OnInit {
 
   user: string = "";
-  userName:string = "";
-  student:Student;
-  warden:Warden;
-  constructor(public studentService: StudentService, public wardenService: WardenService) {}
+  userName: string = "";
+  student: Student = new Student();
+  warden: Warden = new Warden();
+  userInfo: Userinfo = new Userinfo();
+  constructor(private studentService: StudentService, private wardenService: WardenService, private storageService: StorageService) { }
 
-  ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("userinfo")).role;
-    this.userName = JSON.parse(localStorage.getItem("userinfo")).username;
-    console.log(JSON.parse(localStorage.getItem("userinfo")))
+  ngOnInit () {
+    if (this.storageService.getUserInfo() != "") {
+      this.userInfo = JSON.parse(this.storageService.getUserInfo());
+      if (this.userInfo.role == "student") {
+        this.studentService.getStudentById(this.userInfo.id).subscribe(
+          data => {
+            this.student = data;
+          }
+        );
 
-    if(this.user == "student"){
-      this.studentService.getStudentByName(this.userName).subscribe(
-        data => {
-          this.student = data;
-        }
-      );
+      }
+      else if (this.userInfo.role == "warden") {
+        this.wardenService.viewByWId(this.userInfo.id).subscribe(
+          data => {
+            console.log(data);
 
+            this.warden = data;
+          }
+        );
+      }
     }
 
-    if(this.user == "warden"){
-      // this.wardenService.viewByWId
-      let hostelId = JSON.parse(localStorage.getItem("userinfo")).hostel.id;
-      this.wardenService.viewByHId(hostelId).subscribe(
-        data => {
-          this.warden = data;
-          console.log(this.warden);
-        }
-      );
+    console.log(this.warden);
 
-    }
+
   }
 
 

@@ -1,38 +1,38 @@
-<div class="container" *ngIf="user == 'student'">
+<div class="container" *ngIf="userInfo.role == 'student'">
   <h3 class="text-center">STUDENT PROFILE</h3>
   <div class="m-4">
-    <table class="table" *ngFor = "let s of student">
+    <table class="table">
       <tr>
         <th scope="row">ID</th>
-        <td>{{ s.id }}</td>      
+        <td>{{ student.id }}</td>      
       </tr>
       <tr>
         <th scope="row">Name</th>
-        <td>{{ s.name | titlecase }}</td>  
+        <td>{{ student.name | titlecase }}</td>  
       </tr>
       <tr>
         <th scope="row">E-Mail</th>
-        <td>{{ s.email }}</td>
+        <td>{{ student.email }}</td>
       </tr>
       <tr>
         <th scope="row">Gender</th>
-        <td>{{ s.gender | titlecase }}</td>      
+        <td>{{ student.gender | titlecase }}</td>      
       </tr>
       <tr>
         <th scope="row">DOB</th>
-        <td>{{ s.dob }}</td>  
+        <td>{{ student.dob }}</td>  
       </tr>
       <tr>
         <th scope="row">Address</th>
-        <td>{{ s.address | titlecase }}</td>
+        <td>{{ student.address | titlecase }}</td>
       </tr>
       <tr>
         <th scope="row">Mobile Number</th>
-        <td>{{ s.mobile }}</td>      
+        <td>{{ student.mobile }}</td>      
       </tr>
       <tr>
         <th scope="row">Guardian Name</th>
-        <td>{{ s.guardianName | titlecase }}</td>  
+        <td>{{ student.guardianName | titlecase }}</td>  
       </tr>
       <tr>
         <td colspan="2">
@@ -51,33 +51,33 @@
 
 
 
-<div class="container" *ngIf="user == 'warden'">
+<div class="container" *ngIf="userInfo.role == 'warden'">
   <h3 class="text-center">WARDEN PROFILE</h3>
   <div class="m-4">
-    <table class="table" *ngFor = "let w of warden">
+    <table class="table">
       <tr>
         <th scope="row">ID</th>
-        <td>{{ w.id }}</td>      
+        <td>{{ warden.id }}</td>      
       </tr>
       <tr>
         <th scope="row">Name</th>
-        <td>{{ w.name | titlecase }}</td>  
+        <td>{{ warden.name | titlecase }}</td>  
       </tr>
       <tr>
         <th scope="row">E-Mail</th>
-        <td>{{ w.email }}</td>
+        <td>{{ warden.email }}</td>
       </tr>
       <tr>
         <th scope="row">Hostel Id</th>
-        <td>{{ w.hostel.id }}</td>      
+        <td>{{ warden.hostel_id }}</td>      
       </tr>
       <tr>
         <th scope="row">Hostel Name</th>
-        <td>{{ w.hostel.name | uppercase }}</td>  
+        <td>{{ warden.hostel_name | uppercase }}</td>  
       </tr>
       <tr>
         <th scope="row">Hostel Address</th>
-        <td>{{ w.hostel.address | titlecase }}</td>
+        <td>{{ warden.hostel_address | titlecase }}</td>
       </tr>
       <tr>
       <tr>
