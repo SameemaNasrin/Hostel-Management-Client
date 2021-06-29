@@ -27,8 +27,6 @@ export class AddwardenComponent implements OnInit {
     this.hostelService.viewAll().subscribe(
       data => {
         this.hostels = data
-        console.log(this.hostels);
-
       },
       error => {
         console.log(error);

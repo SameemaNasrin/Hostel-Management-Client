@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Logindto } from 'src/app/dto/logindto';
+import { LoginService } from 'src/app/services/login.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +12,27 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   msg: string;
   errorMsgs = []
-  email: string;
-  password: string;
-  constructor() { }
+  loginDto: Logindto = new Logindto();
+  constructor(private loginService: LoginService, private storageService: StorageService, private router: Router) { }
 
   ngOnInit () {
   }
   doLogin (): void {
+    this.errorMsgs = []
+    this.loginService.login(this.loginDto).subscribe(
+      data => {
+        this.msg = "Logged in successfully"
+        this.storageService.setUserInfo(JSON.stringify(data));
+        window.location.reload()
+        // this.router.navigateByUrl("/");
+      },
+      error => {
+        error.error.messages.forEach(element => {
+          this.errorMsgs.push(element)
+        });
+
+      }
+    )
 
   }
 

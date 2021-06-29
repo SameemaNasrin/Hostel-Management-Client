@@ -1,68 +1,67 @@
 <div class="row page">
-    <nav class="navbar navbar-light bg-light">
-      <select class="form-select  view-option" [(ngModel)] = "searchOption">
-        
-        <option value="viewAll" selected>View All</option>
-        <option value="byId">By ID</option>
-        <option value="byName">By Name</option>
-      </select>
-
-      <div class="search-bar">
-        <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"  #searchhostel = "ngModel" [disabled] = "searchOption == 'viewAll'">
-        <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchhostel.value == undefined && (searchOption == 'byId' || searchOption == 'byName')">Search</button>
-      </div>
+  
+  <nav class="navbar navbar-light bg-light">
+    <select class="form-select  view-option" [(ngModel)] = "searchOption">
       
-      <a  routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button">Add New Hostel</a>
-    </nav>
+      <option value="viewAll" selected>View All</option>
+      <option value="byId">By ID</option>
+      <option value="byName">By Name</option>
+    </select>
 
-  <div class="row">
-    <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
-      <p class="text-center">{{ e }}</p>
+    <div class="search-bar">
+      <input class="search form-control m-2 val" [type]="inputSearchType()" placeholder="Search..." aria-label="Search" [(ngModel)] = "value"  #searchhostel = "ngModel" [disabled] = "searchOption == 'viewAll'">
+      <button class="btn btn-outline-success m-2" type="submit" (click) = "viewOption()" [disabled]="searchhostel.value == undefined && (searchOption == 'byId' || searchOption == 'byName')">Search</button>
     </div>
+      <a routerLink='/hostel/add' class="btn btn-outline-success m-2 addhostel" type="button" *ngIf="userinfo && userinfo.role == 'admin'">Add New Hostel</a>
+  </nav>
+
+<div class="row">
+  <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+    <p class="text-center">{{ e }}</p>
   </div>
+</div>
 <div id="viewBody" class="row">
-  <div class="card" style="background-color: #cfe2ff;" *ngFor = "let h of hostels">
-    <div class="con">
-      <!-- <i class='fas fa-hotel' style="color:#26A69A"></i>       -->
-      <img class="card-img-top" src= {{h.imgUrl}} alt="Hostel image">
-      <!-- <div class="overlay">ID: {{h.id}} Name: {{h.name | titlecase}}</div> -->
-    </div>
-
-    <div class="card-body">
-      <table class="table" ng-hide="myVar">
-        <tr>
-          <td>ID</td>
-          <td>{{h.id}}</td>
-        </tr>
-        <tr>
-          <td>Name</td>
-          <td>{{h.name | titlecase}}</td>
-        </tr>
-          <tr>
-            <td>Contact</td>
-            <td>{{h.contact}}</td>
-          </tr>
-          <tr>
-            <td>Type</td>
-            <td>{{h.type | titlecase}}</td>
-          </tr>
-          <tr>
-            <td>Address</td>
-            <td>{{h.address}}</td>
-          </tr>
-          <tr>
-            <td>Fee</td>
-            <td>{{h.fee | currency:"INR"}}</td>
-          </tr>
-          <tr>
-            <td>Total Floor</td>
-            <td>{{h.totalFloors}}</td>
-          </tr>
-      </table>
-
-    
-     
-    </div>
+<div class="card" style="background-color: #cfe2ff;" *ngFor = "let h of hostels">
+  <div class="con">
+    <!-- <i class='fas fa-hotel' style="color:#26A69A"></i>       -->
+    <img class="card-img-top" src= {{h.imgUrl}} alt="Hostel image">
+    <!-- <div class="overlay">ID: {{h.id}} Name: {{h.name | titlecase}}</div> -->
   </div>
+  <div class="card-body">
+    <table class="table" ng-hide="myVar">
+      <tr>
+        <td>ID</td>
+        <td>{{h.id}}</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{h.name | titlecase}}</td>
+      </tr>
+        <tr>
+          <td>Contact</td>
+          <td>{{h.contact}}</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>{{h.type | titlecase}}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{h.address}}</td>
+        </tr>
+        <tr>
+          <td>Fee</td>
+          <td>{{h.fee | currency:"INR"}}</td>
+        </tr>
+        <tr>
+          <td>Total Floor</td>
+          <td>{{h.totalFloors}}</td>
+        </tr>
+    </table>
+
+  
+   
+  </div>
+</div>
 
 </div>

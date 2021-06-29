@@ -40,7 +40,7 @@
               <tr *ngFor="let fs of feeStructure">
                 <td>{{ fs.id}}</td>
                 <td>{{ fs.allotment.student.id }}</td>
-                <td>{{ fs.totalFees }}</td>
+                <td>{{ fs.totalFees | currency : 'INR' }}</td>
                 <td>{{ fs.allotment.id }}</td>
                 <td [ngStyle]="{color : (fs.paymentStatus == 'not paid')? 'red': 'green'}">{{ fs.paymentStatus | uppercase }}</td>
                 <td>{{ fs.paymentDate }}</td>

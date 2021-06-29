@@ -1,10 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler-icon {
   max-width: 25px;
 }
 
@@ -17,36 +17,36 @@
 
 }
 
-footer p{
+footer p {
   color: rgb(192, 192, 192);
 }
 
-nav{
+nav {
   position: sticky;
   top: 0;
   z-index: 99;
 }
 
-a{
+a {
   /* border-radius: 8px; */
   padding: 1rem;
-  
+
   /* transition: border-left 0.5s; */
 }
 
-a:hover{
+a:hover {
   background-color: #004D40;
-  color:white;
+  color: white;
   /* border-left: 2px solid rgb(27, 26, 26); */
 }
 
-a:active{
+a:active {
   background-color: rgb(27, 26, 26);
   color: white;
 }
 
 
-img{
+img {
   max-height: 3rem;
   pointer-events: none;
   margin: 0 1rem;
@@ -56,7 +56,8 @@ img{
 }
 
 
-.nav-item, .nav-link{
+.nav-item,
+.nav-link {
   margin: 0;
 }
 
@@ -68,6 +69,6 @@ img{
   padding-left: 1vw;
 }
 
-.nav-link{
+.nav-link {
   padding: 1vw;
 }

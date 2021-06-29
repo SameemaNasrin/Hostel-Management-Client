@@ -4,10 +4,7 @@
 <article><hr>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #26A69A;  box-shadow: 0px 1px 5px #272928;">
      <div class="container-fluid">
-    <!--  <a class="navbar-brand" href="#">
-        <span style="color: #fff;">Hostel</span>
-        <img src="../assets/image2vector.svg" alt="">
-      </a> -->
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -16,16 +13,26 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/" style="color: #fff;"><i class="fa fa-home"></i></a>
           </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
+              Manage Hostel
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/hostel/view">View all Hostels</a></li>
+              <li><a class="dropdown-item" routerLink="/hostel/add" *ngIf="userInfo && userInfo.role == 'admin'">Add New Hostel</a></li>
+            </ul>
+          </li> -->
+
           <li class="nav-item">
             <a class="nav-link" routerLink="/hostel/view" style="color: #fff;">Hostel</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/feestructure/view" style="color: #fff;">Fee Structure</a>
           </li>
 
-          <!-- start copy -->
-          <li class="nav-item dropdown">
+          
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
               Manage Students
             </a>
@@ -34,9 +41,8 @@
               <li><a class="dropdown-item" routerLink="/student/add">Add New Student</a></li>
             </ul>
           </li>
-          <!-- end copy -->
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
               Manage Rooms
             </a>
@@ -47,19 +53,34 @@
           </li>
 
           
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/warden/view" style="color: #fff;">Warden</a>
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'admin'">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
+              Manage Warden
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/warden/add">Add New Warden</a></li>
+              <li><a class="dropdown-item" routerLink="/warden/view">View all Wardens</a></li>
+            </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/visitor/view" style="color: #fff;">Visitor</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/allotment/view" style="color: #fff;">Alloment</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login" style="color: #fff;">Login</a>
+            <a class="nav-link" routerLink="/login" style="color: #fff;" *ngIf="userInfo == undefined">Login</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="userInfo != undefined">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
+              Welcome {{ userInfo.username }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item"  routerLink="/profile">Profile</a></li>
+              <li><a class="dropdown-item" (click)="doLogOut()">Logout</a></li>
+            </ul>
           </li>
         </ul>
       </div>

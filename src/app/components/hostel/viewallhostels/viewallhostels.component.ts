@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { HostelDto } from 'src/app/dto/hosteldto';
 import { HostelService } from 'src/app/services/hostel.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-viewallhostels',
@@ -12,35 +13,32 @@ export class ViewallhostelsComponent implements OnInit {
   hostels: HostelDto[];
   errorMsgs = []
 
-  value:any = undefined;
-  searchOption:string = "viewAll";
+  value: any = undefined;
+  searchOption: string = "viewAll";
+  userinfo: JSON;
 
 
-  constructor(public hostelService: HostelService) { }
-
+  constructor(public hostelService: HostelService, public storageService: StorageService) { }
   ngOnInit () {
-    this.hostelService.viewAll().subscribe(
-      data => {
-        this.errorMsgs = undefined;
-        this.hostels = data
+    // if(localStorage.length != 0)  {
+    //   this.item = JSON.parse(localStorage.getItem("userinfo")).role;
+    // }
+    if (this.storageService.getUserInfo() != "") {
+      this.userinfo = JSON.parse(this.storageService.getUserInfo())
+    }
 
-      },
 
-      error => {
-        this.hostels = [];
-        this.errorMsgs = error.error.messages;
-        this.hostels = undefined;
 
-      }
-    )
+    this.viewAll();
   }
 
-  viewAll(){
-    // console.log(this.value)
+  viewAll () {
+
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
         this.hostels = data;
+        console.log(this.hostels);
 
       },
 
@@ -52,6 +50,7 @@ export class ViewallhostelsComponent implements OnInit {
   }
 
   viewById () {
+
     console.log(this.value);
     if (this.value == undefined || this.value == null || this.value <= 0) {
       this.errorMsgs[0] = "Enter the Hostel ID greater than 0"
@@ -72,7 +71,7 @@ export class ViewallhostelsComponent implements OnInit {
     this.value = undefined;
   }
 
-  viewByName(){
+  viewByName () {
     this.errorMsgs = [];
     this.hostelService.viewByName(this.value).subscribe(
       data => {
@@ -87,34 +86,34 @@ export class ViewallhostelsComponent implements OnInit {
     )
     this.value = undefined;
   }
-  
-  viewOption(){
+
+  viewOption () {
     console.log(this.searchOption);
-    if(this.searchOption == "byId"){
+    if (this.searchOption == "byId") {
       this.viewById();
     }
 
-    else if(this.searchOption == "byName"){
+    else if (this.searchOption == "byName") {
       this.viewByName();
     }
 
-    else if(this.searchOption == "viewAll"){
+    else if (this.searchOption == "viewAll") {
       // this.value = 'all'
       this.viewAll();
     }
   }
 
- 
 
-  inputSearchType():string{
-    if(this.searchOption == "byId"){
+
+  inputSearchType (): string {
+    if (this.searchOption == "byId") {
       return "number";
     }
 
-    else if(this.searchOption == "byName"){
+    else if (this.searchOption == "byName") {
       return "text";
     }
   }
 
-  
+
 }

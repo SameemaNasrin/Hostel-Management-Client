@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row d-flex justify-content-center" *ngIf="responseMsg!=undefined">
+    <div class="alert alert-success col-md-4 mt-2 mb-0">
+      <p class="text-center">adsa</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 login-form-card">
+      <h3 class="text-center">Pay Fees</h3>
+
+      <!-- <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
+        <p *ngFor="let e of errorMsgs">{{ e }}</p>
+      </div> -->
+      <form #payFeeForm="ngForm" (ngSubmit)="payFees()">
+
+        
+
+
+        
+
+        
+        
+        <div class="row">
+          <input type="submit" value="Pay Fees" class="btn btn-success btn-block mt-2" [disabled]="!payFeeForm.valid" />
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+      
