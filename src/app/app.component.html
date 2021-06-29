@@ -27,12 +27,12 @@
             <a class="nav-link" routerLink="/hostel/view" style="color: #fff;">Hostel</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/feestructure/view" style="color: #fff;">Fee Structure</a>
           </li>
 
-          <!-- start copy -->
-          <li class="nav-item dropdown">
+          
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
               Manage Students
             </a>
@@ -41,9 +41,8 @@
               <li><a class="dropdown-item" routerLink="/student/add">Add New Student</a></li>
             </ul>
           </li>
-          <!-- end copy -->
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
               Manage Rooms
             </a>
@@ -64,10 +63,10 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/visitor/view" style="color: #fff;">Visitor</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link" routerLink="/allotment/view" style="color: #fff;">Alloment</a>
           </li>
 

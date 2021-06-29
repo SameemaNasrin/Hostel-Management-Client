@@ -18,19 +18,18 @@ export class ViewallhostelsComponent implements OnInit {
   item: string = "";
 
 
-  constructor(public hostelService: HostelService) { }
+  constructor(public hostelService: HostelService, public storageService: StorageService) { }
   ngOnInit () {
     if(localStorage.length != 0)  {
-      this.item = JSON.parse(localStorage.getItem("userinfo")).role;  
+      this.item = JSON.parse(localStorage.getItem("userinfo")).role;
     }
-    console.log(this.item);
+    
   
     this.viewAll();
   }
 
   viewAll () {
    
-    // console.log(this.item);
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;

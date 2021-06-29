@@ -8,7 +8,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private storageService: StorageService) {
+  constructor(public storageService: StorageService) {
 
   }
 

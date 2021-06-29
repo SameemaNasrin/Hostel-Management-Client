@@ -18,6 +18,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { GuestGuard } from './guards/guest.guard';
 
 import { ViewComponent } from './components/feestructure/view/view.component';
+import { WardenGuard } from './guards/warden.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,20 +30,20 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'visitor', children: [
+    path: 'visitor', canActivate: [WardenGuard], children: [
       { path: "add", component: AddvisitorComponent },
       { path: "view", component: ViewallvisitorComponent }
     ]
   },
   {
-    path: 'student', children: [
+    path: 'student', canActivate: [WardenGuard], children: [
       { path: 'view', component: ViewallstudentComponent },
       { path: 'add', component: AddstudentComponent },
     ]
   },
 
   {
-    path: 'room', children: [
+    path: 'room', canActivate: [WardenGuard], children: [
       { path: 'view', component: ViewallroomsComponent },
       { path: 'add', component: AddroomComponent },
     ]
@@ -55,13 +56,13 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'allotment', children: [
+    path: 'allotment', canActivate: [WardenGuard], children: [
       { path: 'view', component: ViewbyhidComponent },
       { path: 'add', component: AddallotmentComponent },
     ]
   },
   {
-    path: 'feestructure', children: [
+    path: 'feestructure', canActivate: [WardenGuard], children: [
       { path: 'view', component: ViewComponent },
       { path: 'pay', component: ViewComponent },
     ]
