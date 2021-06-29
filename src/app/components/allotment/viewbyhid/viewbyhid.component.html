@@ -1,22 +1,18 @@
-<nav class="navbar navbar-light bg-light">
-  <div>
-    <input class="search form-control m-2" type="search" placeholder="Search Alloment" aria-label="Search"  [(ngModel)] = "hid">
-    <button class="btn btn-outline-success m-2" type="submit" (click) = "viewallotmentbyhid()">Search by Hostel Id</button>
-  </div>
-  <!-- <div>
-    <input class="search form-control m-2" type="search" placeholder="Delete Alloment" aria-label="Delete"  [(ngModel)] = "id">
-    <button class="btn btn-outline-success m-2" type="submit" (click) = "deleteallotment()">Delete by Alloment Id</button>
-  </div> -->
-<a  routerLink='/allotment/add' class="btn btn-outline-success m-2 addallotment" type="button">Add Alloment</a>
-</nav>
-
-<div class="row">
-  <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
-    <p class="text-center">{{ e }}</p>
-  </div>
-</div>
-
 <div class="container">
+  <nav class="navbar navbar-light bg-light">
+    <!-- <div> -->
+      <input class="search form-control m-2" type="search" placeholder="Search Alloment" aria-label="Search"  [(ngModel)] = "hid" style="width:40vw;">
+      <button class="btn btn-outline-success" type="submit" (click) = "viewallotmentbyhid()" style="margin-right: 20vw;">Search by Hostel Id</button>
+      <a  routerLink='/allotment/add' class="btn btn-outline-success m-2 addallotment" type="button">Add Alloment</a>
+    <!-- </div> -->
+  </nav>
+
+  <div class="row">
+    <div class="alert alert-danger col-md-4 mt-2 mb-0" *ngFor="let e of errorMsgs">
+      <p class="text-center">{{ e }}</p>
+    </div>
+  </div>
+
   <div class="row mt-5">
     <div class="col-md-12">
       <div class="alert alert-success">

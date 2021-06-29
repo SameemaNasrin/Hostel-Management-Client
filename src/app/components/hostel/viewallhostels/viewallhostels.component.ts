@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
-import { HostelDto } from 'src/app/dto/hosteldto';
+import { Component, OnInit } from '@angular/core';
+import { Hostel } from 'src/app/entities/hostel';
 import { HostelService } from 'src/app/services/hostel.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class ViewallhostelsComponent implements OnInit {
 
-  hostels: HostelDto[];
+  hostels: Hostel[];
   errorMsgs = []
 
   value: any = undefined;
@@ -38,7 +38,7 @@ export class ViewallhostelsComponent implements OnInit {
       data => {
         this.errorMsgs = undefined;
         this.hostels = data;
-        console.log(this.hostels);
+        console.log(this.hostels[0].wardens[0].id);
 
       },
 
