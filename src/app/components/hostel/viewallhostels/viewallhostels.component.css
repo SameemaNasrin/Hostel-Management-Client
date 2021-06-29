@@ -48,8 +48,7 @@
     display: inline-block;
 } */
 
-.card{
-    /* margin-left: 2rem; */
+.outer-card{
     margin-top: 5rem;
     width: 20rem;
     border-radius: 1rem;   
