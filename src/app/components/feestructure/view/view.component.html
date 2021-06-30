@@ -43,6 +43,7 @@
                 <td>{{ fs.totalFees | currency : 'INR' }}</td>
                 <td>{{ fs.allotment.id }}</td>
                 <td [ngStyle]="{color : (fs.paymentStatus == 'not paid')? 'red': 'green'}">{{ fs.paymentStatus | uppercase }}</td>
+                <td *ngIf="fs.paymentDate == null">NA</td>
                 <td>{{ fs.paymentDate }}</td>
               </tr>
             </tbody>

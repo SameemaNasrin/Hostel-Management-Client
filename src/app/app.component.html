@@ -80,7 +80,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
               <li><a class="dropdown-item" routerLink="/feestructure/pay" *ngIf="userInfo != undefined && userInfo.role == 'student'">Pay Fees</a></li>
-              <li><a class="dropdown-item" (click)="doLogOut()">Logout</a></li>
+              <li><a class="dropdown-item" (click)="doLogOut()" routerLink="/">Logout</a></li>
             </ul>
           </li>
         </ul>
