@@ -1,44 +1,45 @@
-*{
-    margin: auto;
-    padding: auto;
-    box-sizing: border-box;
+* {
+  margin: auto;
+  padding: auto;
+  box-sizing: border-box;
 }
 
-.page{
-    margin-bottom: 8rem;
+.page {
+  margin-bottom: 8rem;
 }
 
-.navbar{
-    width: 80%;
-    margin: auto;
+.navbar {
+  width: 80%;
+  margin: auto;
 }
 
-.search{
-    display: inline-flex;
-    width: 40vw;
-    margin-right: 2%;
-    position: relative;
-    top: 2px;
-    
+.search {
+  display: inline-flex;
+  width: 40vw;
+  margin-right: 2%;
+  position: relative;
+  top: 2px;
+
 }
 
 /* i{
     font-size:15rem;
 } */
 
-.card-img-top{
-    max-width: 20rem;
-    max-height: 10rem;
-    
+.card-img-top {
+  max-width: 20rem;
+  max-height: 10rem;
+
 }
 
-.con{
-    width: 20rem;
-    height: 10rem;
-    position: relative;
-    right: 0.8rem;
-    border-radius: 1rem;
+.con {
+  width: 20rem;
+  height: 10rem;
+  position: relative;
+  right: 0.8rem;
+  border-radius: 1rem;
 }
+
 /* 
 .card-body{
     display: none;
@@ -48,34 +49,35 @@
     display: inline-block;
 } */
 
-.card{
-    /* margin-left: 2rem; */
-    margin-top: 5rem;
-    width: 20rem;
-    border-radius: 1rem;   
+.card {
+  /* margin-left: 2rem; */
+  margin-top: 5rem;
+  width: 20rem;
+  border-radius: 1rem;
 }
 
 .overlay {
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5); /* Black see-through */
-    color: #f1f1f1; 
-    width: 100%;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-  
-.con:hover .overlay {
-    opacity: 1;
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
 }
 
-#viewBody{
-    width: 100%;
+.con:hover .overlay {
+  opacity: 1;
+}
+
+#viewBody {
+  width: 100%;
 }
 
 /* 
@@ -83,17 +85,13 @@
     margin-left: 3rem;
 } */
 
-.view-option{
-    /* padding: 2rem; */
-    width: fit-content;
+.view-option {
+  /* padding: 2rem; */
+  width: fit-content;
 }
 
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
 
 /* flexbox */
-
-
-
-  

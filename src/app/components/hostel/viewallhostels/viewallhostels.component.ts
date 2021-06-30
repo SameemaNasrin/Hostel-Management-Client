@@ -20,15 +20,10 @@ export class ViewallhostelsComponent implements OnInit {
 
   constructor(public hostelService: HostelService, public storageService: StorageService) { }
   ngOnInit () {
-    // if(localStorage.length != 0)  {
-    //   this.item = JSON.parse(localStorage.getItem("userinfo")).role;
-    // }
+
     if (this.storageService.getUserInfo() != "") {
       this.userinfo = JSON.parse(this.storageService.getUserInfo())
     }
-
-
-
     this.viewAll();
   }
 
@@ -38,7 +33,7 @@ export class ViewallhostelsComponent implements OnInit {
       data => {
         this.errorMsgs = undefined;
         this.hostels = data;
-        console.log(this.hostels[0].wardens[0].id);
+        // console.log(this.hostels[0].wardens[0].id);
 
       },
 

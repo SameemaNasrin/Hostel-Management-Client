@@ -7,7 +7,7 @@
     </div>
     <div class="alert alert-danger" *ngIf="errorMsgs.length > 0">
         <p *ngFor="let e of errorMsgs">
-            {{ e }}
+          {{ e }}
         </p>
     </div>
 
@@ -60,7 +60,11 @@
     </div>
 
     <div class="row">
-      <input type="submit" value="Add New Hostel" class="btn btn-success btn-block mt-2" [disabled]="!addHostel.valid">
+      <button type="submit" class="btn btn-success btn-block mt-2" [disabled]="!addHostel.valid || isLoading" (click)="addHostel.submit">
+        <img *ngIf="isLoading" src="../../../../assets/loading.gif" width="30px" />
+        Add Hostel
+      </button>
+      <!-- <input type="submit" value="Add New Hostel" class="btn btn-success btn-block mt-2" [disabled]="!addHostel.valid"> -->
     </div>
   </form>
 </div>

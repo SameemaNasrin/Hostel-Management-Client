@@ -22,7 +22,9 @@ export class ViewallwardensComponent implements OnInit {
         this.wardens = data;
       },
       error => {
-        console.log(error);
+        error.error.messages.forEach(element => {
+          this.errorMsgs.push(element)
+        });
 
       }
     )

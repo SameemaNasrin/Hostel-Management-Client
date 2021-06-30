@@ -20,6 +20,7 @@ export class AddhostelComponent implements OnInit {
   img: string;
   filePath: string;
   fileExtension: string;
+  isLoading: boolean = false;
 
   @ViewChild("addHostel")
   private form: NgForm;
@@ -36,8 +37,8 @@ export class AddhostelComponent implements OnInit {
 
   }
   addHostelFormSubmit (): void {
-    console.log(this.hostelDto);
-    console.log(this.filePath);
+
+    this.isLoading = true;
     let path = "/hostel_images/" + Date.now() + "_" + Date.now().toString().substring(0, 2) + "." + this.fileExtension;
     const fileRef = this.fireStorage.ref(path);
 
@@ -46,17 +47,16 @@ export class AddhostelComponent implements OnInit {
       .then((data) => {
         fileRef.getDownloadURL().subscribe(
           (url) => {
-            console.log(url);
             this.hostelDto.imgUrl = url;
             this.hostelService.addHostel(this.hostelDto).subscribe(
               data => {
-                console.log(data);
+                this.isLoading = false;
                 this.errorMsgs = [];
                 this.msg = data.message;
                 this.form.reset();
               },
               error => {
-                console.log(error);
+                this.isLoading = false;
                 this.msg = undefined;
                 error.error.messages.forEach(m => {
                   this.errorMsgs.push(m)
@@ -70,13 +70,6 @@ export class AddhostelComponent implements OnInit {
         console.log(err);
 
       })
-
-    // this.hostel.imgUrl = this.img.split("\\")[2];
-    // this.hostel.imgUrl = "..\\assets\\" + this.hostel.imgUrl;
-    // console.log(this.hostel.imgUrl);
-
-    // nessesary code
-
 
   }
 }

@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .navbar-toggler-icon {
   max-width: 25px;
 }
@@ -72,3 +73,35 @@ img {
 .nav-link {
   padding: 1vw;
 }
+
+/* .footer-wrapper {
+  position: relative;
+  height: 0;
+  z-index: -9999;
+}
+
+.footer-wrapper p {
+  position: absolute;
+  left: 42%;
+  color: #ffffff;
+  bottom: 100%;
+}
+
+.footer-section svg {
+  margin-top: -20%;
+}
+
+@media screen and (max-width: 768px) {
+
+  .footer-wrapper p {
+    left: 21%;
+    position: fixed;
+    bottom: 2%;
+    font-size: 12px;
+  }
+
+  .footer-section svg {
+    margin-top: 0%;
+  }
+
+} */

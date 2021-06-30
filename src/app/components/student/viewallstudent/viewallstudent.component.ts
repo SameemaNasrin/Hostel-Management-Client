@@ -19,7 +19,9 @@ export class ViewallstudentComponent implements OnInit {
         this.students = data;
       },
       error => {
-        console.log(error);
+        error.error.messages.forEach(element => {
+          this.searchErr.push(element)
+        });
 
       }
     )

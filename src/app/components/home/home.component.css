@@ -1,7 +1,11 @@
-.card{
-    background-color: wheat;
-    text-align: left;
-    margin: auto;
-    width: 35rem;
-    border-radius: 1rem;   
+.card {
+  background-color: wheat;
+  text-align: left;
+  margin: auto;
+  width: 35rem;
+  border-radius: 1rem;
+}
+
+.carousel-caption {
+  top: 11rem;
 }

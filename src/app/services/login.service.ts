@@ -21,7 +21,7 @@ export class LoginService {
   logout (token: string): Observable<any> {
     return this.http.post(Constants.baseUrl + "logout", {}, { headers: { 'token-id': token } });
   }
-  changePassword (changePassDto: Changepassword, token: string) {
+  changePassword (changePassDto: Changepassword, token: string): Observable<any> {
     return this.http.post(Constants.baseUrl + `change/password`, changePassDto, { headers: { 'token-id': token } });
   }
 

@@ -62,9 +62,8 @@ export class PayComponent implements OnInit {
       data => {
         this.successMsg = data.message;
         setTimeout(() => {
-
-        }, 1000);
-        this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/");
+        }, 1500);
       },
       error => {
         error.error.messagges.forEach(element => {
