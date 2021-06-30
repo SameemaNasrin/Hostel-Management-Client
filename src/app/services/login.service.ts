@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Changepassword } from '../dto/changepassword';
 import { Logindto } from '../dto/logindto';
 import { Constants } from '../helpers/constants';
 
@@ -20,6 +21,8 @@ export class LoginService {
   logout (token: string): Observable<any> {
     return this.http.post(Constants.baseUrl + "logout", {}, { headers: { 'token-id': token } });
   }
-
+  changePassword (changePassDto: Changepassword, token: string) {
+    return this.http.post(Constants.baseUrl + `change/password`, changePassDto, { headers: { 'token-id': token } });
+  }
 
 }

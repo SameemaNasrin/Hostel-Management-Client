@@ -23,11 +23,12 @@ import { StudentGuard } from './guards/student.guard';
 import { PayComponent } from './components/feestructure/pay/pay.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'profile/password', component: ChangepasswordComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile/password', component: ChangepasswordComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   {
     path: 'hostel', children: [
