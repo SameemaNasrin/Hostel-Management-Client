@@ -34,32 +34,32 @@
           
           <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
-              Manage Students
+              Students
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/student/view">View all Students</a></li>
-              <li><a class="dropdown-item" routerLink="/student/add">Add New Student</a></li>
+              <li><a class="dropdown-item" routerLink="/student/view">View</a></li>
+              <li><a class="dropdown-item" routerLink="/student/add">Add New</a></li>
             </ul>
           </li>
 
           <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'warden'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
-              Manage Rooms
+              Rooms
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/room/view">View all Rooms</a></li>
-              <li><a class="dropdown-item" routerLink="/room/add">Add New Room</a></li>
+              <li><a class="dropdown-item" routerLink="/room/view">View</a></li>
+              <li><a class="dropdown-item" routerLink="/room/add">Add New</a></li>
             </ul>
           </li>
 
           
           <li class="nav-item dropdown" *ngIf="userInfo && userInfo.role == 'admin'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
-              Manage Warden
+              Warden
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/warden/add">Add New Warden</a></li>
-              <li><a class="dropdown-item" routerLink="/warden/view">View all Wardens</a></li>
+              <li><a class="dropdown-item" routerLink="/warden/view">View</a></li>
+              <li><a class="dropdown-item" routerLink="/warden/add">Add New</a></li>
             </ul>
           </li>
 
