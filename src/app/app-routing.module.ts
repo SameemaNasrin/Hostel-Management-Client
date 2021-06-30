@@ -22,10 +22,12 @@ import { WardenGuard } from './guards/warden.guard';
 import { StudentGuard } from './guards/student.guard';
 import { PayComponent } from './components/feestructure/pay/pay.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'profile/password', component: ChangepasswordComponent },
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   {
     path: 'hostel', children: [

@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
     if (this.storageService.getUserInfo() != "") {
       this.userInfo = JSON.parse(this.storageService.getUserInfo());
       this.user = JSON.parse(this.storageService.getUserInfo()).role;
+      console.log(this.userInfo);
     }
   }
 

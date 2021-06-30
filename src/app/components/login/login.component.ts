@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.msg = "Logged in successfully"
         this.storageService.setUserInfo(JSON.stringify(data));
+        console.log(this.loginDto)
         window.location.reload()
         // this.router.navigateByUrl("/");
       },

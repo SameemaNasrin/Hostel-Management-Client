@@ -27,6 +27,7 @@ import { PayComponent } from './components/feestructure/pay/pay.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     ViewComponent,
     PayComponent,
     ProfileComponent,
+    ChangepasswordComponent,
 
 
   ],
