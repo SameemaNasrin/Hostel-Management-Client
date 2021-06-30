@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Changepassword } from 'src/app/dto/changepassword';
 
 @Component({
   selector: 'app-changepassword',
@@ -7,19 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangepasswordComponent implements OnInit {
 
-  newPassword:string = undefined;
-  confirmPassword:string = undefined;
+  passwordDto = new Changepassword();
+  // newPassword:string = undefined;
+  // confirmPassword:string = undefined;
   constructor() { }
 
   ngOnInit() {
   }
 
   changePassword(){
-    if(this.newPassword != undefined && this.confirmPassword != undefined){
-      if(this.newPassword == this.confirmPassword){
-        console.log(this.newPassword);
-      }
-    }
+    console.log(this.passwordDto);
   }
 
 }
