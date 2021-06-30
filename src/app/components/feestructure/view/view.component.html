@@ -42,8 +42,10 @@
                 <td>{{ fs.allotment.student.id }}</td>
                 <td>{{ fs.totalFees | currency : 'INR' }}</td>
                 <td>{{ fs.allotment.id }}</td>
-                <td [ngStyle]="{color : (fs.paymentStatus == 'not paid')? 'red': 'green'}">{{ fs.paymentStatus | uppercase }}</td>
-                <td *ngIf="fs.paymentDate == null">NA</td>
+                <td *ngIf="fs.paymentStatus == 'not paid'"><span class="badge bg-danger">{{ fs.paymentStatus | uppercase }}</span></td>
+                <td *ngIf="fs.paymentStatus == 'paid'"><span class="badge bg-success">{{ fs.paymentStatus | uppercase }}</span></td>
+                <!-- <td [ngStyle]="{color : (fs.paymentStatus == 'not paid')? 'red': 'green'}">{{ fs.paymentStatus | uppercase }}</td> -->
+                <td *ngIf="fs.paymentDate == null">N/A</td>
                 <td>{{ fs.paymentDate }}</td>
               </tr>
             </tbody>

@@ -27,12 +27,10 @@ export class ChangepasswordComponent implements OnInit {
 
   changePassword () {
     this.loginService.changePassword(this.changePasswordDto, this.userInfo.token).subscribe(
-      data => {
+      (data) => {
         this.responseMsg = data.message;
-
       },
-      error => {
-        console.log(error);
+      (error) => {
 
         error.error.messages.forEach(element => {
           this.errorMsgs.push(element);

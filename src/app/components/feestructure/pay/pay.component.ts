@@ -18,6 +18,8 @@ export class PayComponent implements OnInit {
   errorMsgs = []
   successMsg: string;
   formErrorMsgs = []
+  isPaid = false;
+  paymentHistory = new Map();
   payFee: Payfee = new Payfee();
   constructor(private storageService: StorageService, private studentService: StudentService, private feeStructureService: FeestructureService, private router: Router) { }
   ngOnInit () {
@@ -28,9 +30,17 @@ export class PayComponent implements OnInit {
       this.errorMsgs = []
       this.studentService.getAllotmentDeatails(this.userInfo.id).subscribe(
         data => {
+          // console.log(data);
 
           if (data.paymentStatus == "paid") {
+            this.isPaid = true;
             this.errorMsgs.push("You have already paid")
+            this.paymentHistory.set("id", data.id);
+            this.paymentHistory.set("paymentDate", data.paymentDate);
+            this.paymentHistory.set("paymentStatus", data.paymentStatus);
+            this.paymentHistory.set("totalFees", data.totalFees);
+            console.log(this.paymentHistory);
+
           }
           else {
             this.payFee.amount = data.totalFees;
