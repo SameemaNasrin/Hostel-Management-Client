@@ -4,6 +4,7 @@ import { Room } from 'src/app/entities/room';
 import { HostelService } from 'src/app/services/hostel.service';
 import { RoomService } from 'src/app/services/room.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-viewallrooms',
@@ -24,9 +25,19 @@ export class ViewallroomsComponent implements OnInit {
   errorMsgs = []
   floor: number;
   modalErrorMsgs = []
-  constructor(private roomService: RoomService, private hostelService: HostelService, private modalService: BsModalService) { }
+  wardenInfo: string;
+  constructor(private roomService: RoomService, private hostelService: HostelService, private modalService: BsModalService, private storageService:StorageService) { }
 
   ngOnInit () {
+    // this.wardenInfo =  JSON.parse(this.storageService.getUserInfo()).hostel.id;
+    // console.log(this.wardenInfo)
+    // this.searchItem = this.wardenInfo;
+    // this.searchByHostelId();
+    this.viewAll();
+
+  }
+
+  viewAll(){
     this.hostelService.viewAll().subscribe(
       data => {
         this.hostels = data;
