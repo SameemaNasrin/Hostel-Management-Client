@@ -12,7 +12,7 @@
         <p *ngFor="let e of errorMsgs">{{ e }}</p>
       </div>
       <form #addAllotmentForm="ngForm" (ngSubmit)="addAllotment()">
-
+        <!--hostel feild with options -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Hostel to Allocate </label>
           <select class="form-select" name="txthost" [(ngModel)]="allotmentdto.hostelId" #alloHostel="ngModel" (change)="onHostelChange($event)" required>
@@ -22,7 +22,7 @@
         <div *ngIf="alloHostel.invalid && alloHostel.touched" class="alert alert-danger">
             <div *ngIf="alloHostel.errors.required">Hostel is required</div>
         </div>
-
+        <!-- students feild with options -->
 
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Student to Allocate </label>
@@ -34,7 +34,7 @@
         <div *ngIf="alloStudent.invalid && alloStudent.touched" class="alert alert-danger">
             <div *ngIf="alloStudent.errors.required">Student is required</div>
         </div>
-
+      <!-- room feild with options -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Choose Room to Allocate </label>
           <select class="form-select" name="txtROOM" [(ngModel)]="allotmentdto.roomId" #alloRoom="ngModel" required>
@@ -45,7 +45,7 @@
         <div *ngIf="alloRoom.invalid && alloRoom.touched" class="alert alert-danger">
             <div *ngIf="alloRoom.errors.required">Room is required</div>
         </div>
-        
+      <!-- submit button -->
         <div class="row">
           <input type="submit" value="Add Allotment" class="btn btn-success btn-block mt-2" [disabled]="!addAllotmentForm.valid" />
         </div>
