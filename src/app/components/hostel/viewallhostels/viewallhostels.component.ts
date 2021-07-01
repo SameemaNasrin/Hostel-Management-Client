@@ -20,7 +20,7 @@ export class ViewallhostelsComponent implements OnInit {
 
   constructor(public hostelService: HostelService, public storageService: StorageService) { }
   ngOnInit () {
-
+    //getting data from localstorage
     if (this.storageService.getUserInfo() != "") {
       this.userinfo = JSON.parse(this.storageService.getUserInfo())
     }
@@ -28,7 +28,7 @@ export class ViewallhostelsComponent implements OnInit {
   }
 
   viewAll () {
-
+    // getting all data from database
     this.hostelService.viewAll().subscribe(
       data => {
         this.errorMsgs = undefined;
@@ -38,6 +38,7 @@ export class ViewallhostelsComponent implements OnInit {
       },
 
       error => {
+        //error handling
         this.hostels = [];
         this.errorMsgs = error.error.messages;
       }

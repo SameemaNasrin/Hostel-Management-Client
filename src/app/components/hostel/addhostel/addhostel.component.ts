@@ -39,15 +39,18 @@ export class AddhostelComponent implements OnInit {
   addHostelFormSubmit (): void {
 
     this.isLoading = true;
+    // path to firebase
     let path = "/hostel_images/" + Date.now() + "_" + Date.now().toString().substring(0, 2) + "." + this.fileExtension;
     const fileRef = this.fireStorage.ref(path);
 
+    //calling firebase api to store image in a specified path
     this.fireStorage
       .upload(path, this.filePath)
       .then((data) => {
         fileRef.getDownloadURL().subscribe(
           (url) => {
             this.hostelDto.imgUrl = url;
+            // saving the download url in database
             this.hostelService.addHostel(this.hostelDto).subscribe(
               data => {
                 this.isLoading = false;
@@ -56,6 +59,7 @@ export class AddhostelComponent implements OnInit {
                 this.form.reset();
               },
               error => {
+                //error handling
                 this.isLoading = false;
                 this.msg = undefined;
                 error.error.messages.forEach(m => {

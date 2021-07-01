@@ -23,6 +23,7 @@ export class PayComponent implements OnInit {
   payFee: Payfee = new Payfee();
   constructor(private storageService: StorageService, private studentService: StudentService, private feeStructureService: FeestructureService, private router: Router) { }
   ngOnInit () {
+    // getting data from localstorage
     if (this.storageService.getUserInfo() != "") {
       this.userInfo = JSON.parse(this.storageService.getUserInfo());
     }
@@ -30,9 +31,9 @@ export class PayComponent implements OnInit {
       this.errorMsgs = []
       this.studentService.getAllotmentDeatails(this.userInfo.id).subscribe(
         data => {
-          // console.log(data);
 
           if (data.paymentStatus == "paid") {
+            //if student has already paid, then show his/her payment history
             this.isPaid = true;
             this.errorMsgs.push("You have already paid")
             this.paymentHistory.set("id", data.id);
@@ -48,6 +49,7 @@ export class PayComponent implements OnInit {
 
         },
         error => {
+          //error handling
           error.error.messages.forEach(element => {
             this.errorMsgs.push(element)
           });
@@ -61,11 +63,13 @@ export class PayComponent implements OnInit {
     this.feeStructureService.payByStudentId(this.payFee, this.userInfo.id).subscribe(
       data => {
         this.successMsg = data.message;
+        //time delay for showing the success message
         setTimeout(() => {
           this.router.navigateByUrl("/");
         }, 1500);
       },
       error => {
+        //error handling
         error.error.messagges.forEach(element => {
           this.formErrorMsgs.push(element);
         });

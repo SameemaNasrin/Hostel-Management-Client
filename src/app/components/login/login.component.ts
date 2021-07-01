@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginDto).subscribe(
       data => {
         this.msg = "Logged in successfully"
+        //saving user information into local storage
         this.storageService.setUserInfo(JSON.stringify(data));
         console.log(this.loginDto)
         window.location.reload()

@@ -10,32 +10,33 @@ import { FeestructureService } from 'src/app/services/feestructure.service';
 export class ViewComponent implements OnInit {
 
   searchOption = "viewUnpaid";
-  feeStructure:Feestructure[];
+  feeStructure: Feestructure[];
   errorMsgs = [];
-  studentID:number;
+  studentID: number;
 
   constructor(public feeStructureService: FeestructureService) { }
 
-  ngOnInit() {
+  ngOnInit () {
+    // viewing all unpaid students in the beginning
     this.viewUnpaid();
 
   }
 
-  
+
   viewOption () {
     console.log(this.searchOption);
     if (this.searchOption == "viewUnpaid") {
       this.viewUnpaid();
     }
 
-    else if (this.searchOption == "byStudentId"){
+    else if (this.searchOption == "byStudentId") {
       this.viewByStudentId();
 
     }
 
   }
 
-  viewUnpaid(){
+  viewUnpaid () {
     this.feeStructureService.viewUnpaid().subscribe(
       data => {
         this.feeStructure = [];
@@ -45,6 +46,7 @@ export class ViewComponent implements OnInit {
         this.errorMsgs = undefined;
       },
       error => {
+        //error handling
         this.feeStructure = [];
         this.errorMsgs = error.error.messages;
       }
@@ -52,9 +54,9 @@ export class ViewComponent implements OnInit {
 
   }
 
-  viewByStudentId(){
+  viewByStudentId () {
     this.feeStructureService.viewByStudentId(this.studentID).subscribe(
-      data =>{
+      data => {
         this.feeStructure = [];
         data.forEach(e => {
           this.feeStructure.push(e);
@@ -62,6 +64,7 @@ export class ViewComponent implements OnInit {
         this.errorMsgs = undefined;
       },
       error => {
+        //error handling
         this.feeStructure = [];
         this.errorMsgs = error.error.messages;
       }
