@@ -61,11 +61,11 @@ import { Credentials } from './helpers/credentials';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp({
       apiKey: Credentials.apiKey,
-      authDomain: "hostel-management-270f0.firebaseapp.com",
-      projectId: "hostel-management-270f0",
-      storageBucket: "hostel-management-270f0.appspot.com",
-      messagingSenderId: "744427387569",
-      appId: "1:744427387569:web:5211dcdf22d5280931c090"
+      authDomain: Credentials.authDomain,
+      projectId: Credentials.projectId,
+      storageBucket: Credentials.storageBucket,
+      messagingSenderId: Credentials.messagingSenderId,
+      appId: Credentials.appId
     }),
     AngularFireStorageModule,
     ModalModule.forRoot()
