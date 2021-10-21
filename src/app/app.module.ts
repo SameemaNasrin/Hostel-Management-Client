@@ -28,6 +28,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { Credentials } from './helpers/credentials';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,7 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
     HttpClientModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDJH2u8aV6PcDLnVzDOo_BCGoheN6kWID4",
+      apiKey: Credentials.apiKey,
       authDomain: "hostel-management-270f0.firebaseapp.com",
       projectId: "hostel-management-270f0",
       storageBucket: "hostel-management-270f0.appspot.com",
